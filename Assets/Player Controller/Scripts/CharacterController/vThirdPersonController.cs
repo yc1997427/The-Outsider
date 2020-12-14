@@ -129,5 +129,9 @@ namespace Invector.vCharacterController
         public virtual void Punch(){
             animator.CrossFadeInFixedTime("Punch", 0.1f);
         }
+        //trigger kick animation
+        public virtual void Kick(){
+            animator.CrossFadeInFixedTime("Kick", 0.1f);
+        }
     }
 }
