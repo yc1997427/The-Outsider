@@ -127,8 +127,7 @@ namespace Invector.vCharacterController
 
         //trigger punch animation
         public virtual void Punch(){
-
-
+            animator.CrossFadeInFixedTime("Punch", 0.1f);
         }
     }
 }
