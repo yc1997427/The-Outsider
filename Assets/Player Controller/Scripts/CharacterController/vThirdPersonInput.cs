@@ -86,13 +86,14 @@ namespace Invector.vCharacterController
             PunchInput();
             KickInput();
         }
-
+        //taking player input to move 
         public virtual void MoveInput()
         {
             cc.input.x = Input.GetAxis(horizontalInput);
             cc.input.z = Input.GetAxis(verticallInput);
         }
 
+        //taking player input to control camera 
         protected virtual void CameraInput()
         {
             if (!cameraMain)

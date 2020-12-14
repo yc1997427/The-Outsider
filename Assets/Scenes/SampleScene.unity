@@ -290,7 +290,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2700874171910072504, guid: 330efb0e9eed825408809c121441b8a5, type: 3}
       propertyPath: m_Name
-      value: vThirdPersonCamera_LITE
+      value: ThirdPersonCamera
       objectReference: {fileID: 0}
     - target: {fileID: 2700874171910072505, guid: 330efb0e9eed825408809c121441b8a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 512111507}
   - component: {fileID: 512111506}
   - component: {fileID: 512111505}
+  - component: {fileID: 512111510}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -534,6 +535,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512111510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512111504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3426116fc06be499ea3f01aca5c6d3d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 940278571}
 --- !u!4 &602203366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4516935800302984, guid: 30bc08731236a7144b912e18c0f9f9c9, type: 3}
@@ -1212,7 +1226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4425428723088313499, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_Name
-      value: ThirdPersonController_LITE
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4425428723088313500, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_WarningMessage
