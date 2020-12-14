@@ -82,7 +82,7 @@ namespace Invector.vCharacterController
             SprintInput();
             StrafeInput();
             JumpInput();
-            SpellInput();
+            PunchInput();
         }
 
         public virtual void MoveInput()
