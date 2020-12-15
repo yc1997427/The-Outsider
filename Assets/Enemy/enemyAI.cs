@@ -44,6 +44,7 @@ public class enemyAI : MonoBehaviour
 
             Debug.Log("Chasing player");
             if(Vector3.Distance(player.transform.position,transform.position)<attackRange){
+                agent.speed=wanderSpeed;
                 OnAttack();
             }
         }
