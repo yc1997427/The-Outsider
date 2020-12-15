@@ -18,6 +18,8 @@ public class enemyAI : MonoBehaviour
 
     int number_of_humans_runA;
 
+    int attackRange ;
+
     private UnityEngine.AI.NavMeshAgent agent;
 
 
@@ -64,5 +66,9 @@ public class enemyAI : MonoBehaviour
     }
     public void OnAware(){
         isAware=true;
+    }
+
+    public void OnAttack(){
+        
     }
 }
