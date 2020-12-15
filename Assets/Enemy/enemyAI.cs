@@ -12,13 +12,15 @@ public class enemyAI : MonoBehaviour
     int MinDist=5;
     bool isAware=false;
     int viewDistance =20;
+
+    int voiceDistance=10;
     int fov=180;
     int chaseSpeed=50;
     int wanderSpeed= 20;
 
-    int number_of_humans_runA;
+    int numOfAwaredHumans=10;
 
-    int attackRange ;
+    int attackRange=0;
 
     private UnityEngine.AI.NavMeshAgent agent;
 
@@ -41,6 +43,9 @@ public class enemyAI : MonoBehaviour
             agent.speed=chaseSpeed;
 
             Debug.Log("Chasing player");
+            if(Vector3.Distance(player.transform.position,transform.position)<attackRange){
+                OnAttack();
+            }
         }
         //if not, he will keep wandering around
         else{
@@ -63,12 +68,16 @@ public class enemyAI : MonoBehaviour
 
             }
         }
+        if(Vector3.Distance(player.transform.position,transform.position)<voiceDistance){
+            OnAware();
+        }
     }
     public void OnAware(){
         isAware=true;
+
     }
 
     public void OnAttack(){
-        
+
     }
 }
