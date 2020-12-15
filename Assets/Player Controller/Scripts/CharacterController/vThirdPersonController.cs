@@ -131,7 +131,7 @@ namespace Invector.vCharacterController
         }
         //trigger kick animation
         public virtual void Kick(){
-            animator.CrossFadeInFixedTime("Kick", 0.1f);
+            animator.CrossFadeInFixedTime("Kick", 0.2f);
         }
     }
 }
