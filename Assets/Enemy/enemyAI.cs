@@ -10,7 +10,7 @@ public class enemyAI : MonoBehaviour
     int MoveSpeed=4;
     int MaxDist=10;
     int MinDist=5;
-    bool isAware=true;
+    bool isAware=false;
     int viewDistance =20;
     int fov=180;
     int chaseSpeed=50;
