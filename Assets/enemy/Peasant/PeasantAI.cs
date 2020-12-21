@@ -22,6 +22,9 @@ public class PeasantAI : MonoBehaviour
 
     int attackRange = 0;
 
+    bool nowMovingToTarget = false;
+    float dist;
+
     private UnityEngine.AI.NavMeshAgent agent;
 
 
@@ -37,23 +40,37 @@ public class PeasantAI : MonoBehaviour
 
         //the enemy detects the player
         //if he sees the player, he will chase up
+        dist=agent.remainingDistance;
+
+
         if (isAware)
-        {
+        {   
             if(numOfAwaredHumans<10){
-                agent.SetDestination(new Vector3(499,0,784));
-                animator.SetBool("isRunning", true);
-                agent.speed = chaseSpeed;
+
+                agent.SetDestination(new Vector3(499,0,788));
+
+                
+                if ( agent.remainingDistance==0){
+                    animator.SetBool("isRunning", false);
+                    agent.speed = 0;
+                }
+                else{
+                    animator.SetBool("isRunning", true);
+                    agent.speed = chaseSpeed;
+                }
             }
             else{
                 if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
                 {            
+                    agent.speed = wanderSpeed;
+                    OnAttack();
+                }
+                else{
                     agent.SetDestination(player.transform.position);
                     animator.SetBool("isRunning", true);
                     agent.speed = chaseSpeed;
 
                     Debug.Log("Chasing player");
-                    agent.speed = wanderSpeed;
-                    OnAttack();
                 }
             }
         }
