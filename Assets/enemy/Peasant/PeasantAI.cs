@@ -18,7 +18,7 @@ public class PeasantAI : MonoBehaviour
     int chaseSpeed = 50;
     int wanderSpeed = 20;
 
-    int numOfAwaredHumans = 10;
+    int numOfAwaredHumans = 0;
 
     int attackRange = 0;
 
@@ -39,21 +39,27 @@ public class PeasantAI : MonoBehaviour
         //if he sees the player, he will chase up
         if (isAware)
         {
-            agent.SetDestination(player.transform.position);
-            animator.SetBool("isRunning", true);
-            agent.speed = chaseSpeed;
+            if(numOfAwaredHumans<10){
+                agent.SetDestination(new Vector3(499,0,784));
+            }
+            else{
+                if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
+                {            
+                    agent.SetDestination(player.transform.position);
+                    animator.SetBool("isRunning", true);
+                    agent.speed = chaseSpeed;
 
-            Debug.Log("Chasing player");
-            if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
-            {
-                agent.speed = wanderSpeed;
-                OnAttack();
+                    Debug.Log("Chasing player");
+                    agent.speed = wanderSpeed;
+                    OnAttack();
+                }
             }
         }
         //if not, he will keep wandering around
         else
         {
             animator.SetBool("isRunning", false);
+            agent.speed = wanderSpeed;
             SearchForPlayer();
 
             agent.speed = wanderSpeed;
