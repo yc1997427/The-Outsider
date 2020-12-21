@@ -15,8 +15,8 @@ public class PeasantAI : MonoBehaviour
 
     int voiceDistance = 10;
     int fov = 180;
-    int chaseSpeed = 50;
-    int wanderSpeed = 20;
+    int chaseSpeed = 30;
+    int wanderSpeed = 8;
 
     int numOfAwaredHumans = 0;
 
@@ -41,6 +41,8 @@ public class PeasantAI : MonoBehaviour
         {
             if(numOfAwaredHumans<10){
                 agent.SetDestination(new Vector3(499,0,784));
+                animator.SetBool("isRunning", true);
+                agent.speed = chaseSpeed;
             }
             else{
                 if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
@@ -58,8 +60,12 @@ public class PeasantAI : MonoBehaviour
         //if not, he will keep wandering around
         else
         {
-            animator.SetBool("isRunning", false);
+            animator.SetBool("isRunning", true);
+
             agent.speed = wanderSpeed;
+
+            agent.speed=wanderSpeed;
+
             SearchForPlayer();
 
             agent.speed = wanderSpeed;
