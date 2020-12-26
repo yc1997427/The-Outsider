@@ -25,8 +25,7 @@ public class playerhealth : MonoBehaviour
     {
         float hit =anim.GetFloat("hit");
         if (hit >0){
-        	hit-=Time.deltaTime*3;
-        	Debug.Log(hit);
+       
         	anim.SetFloat("hit",hit);
         }
         if(curhealth<1){
