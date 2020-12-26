@@ -26,17 +26,22 @@ public class playerhealth : MonoBehaviour
         float hit =anim.GetFloat("hit");
         if (hit >0){
         	hit-=Time.deltaTime*3;
+        	Debug.Log(hit);
+        	anim.SetFloat("hit",hit);
         }
         if(curhealth<1){
         	anim.SetBool("death",true);
         }
-        if(Input.GetKeyUp(KeyCode.Space)){
+        if(Input.GetKeyUp(KeyCode.Return)){
         	SendDamage(Random.Range(10,20));
         }
+
+        
     }
 
     public void SendDamage(float damageValue){
     	curhealth-=damageValue;
     	healthBar.value=curhealth;
+    	anim.SetFloat("hit",1);
     }
 }
