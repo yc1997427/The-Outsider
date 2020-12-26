@@ -47,7 +47,7 @@ public class PeasantAI : MonoBehaviour
         {   
             if(numOfAwaredHumans<10){
 
-                agent.SetDestination(new Vector3(499,0,788));
+                agent.SetDestination(new Vector3(499,0,784));
 
                 
                 if ( agent.remainingDistance==0){
@@ -63,7 +63,7 @@ public class PeasantAI : MonoBehaviour
                 if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
                 {            
                     agent.speed = wanderSpeed;
-                    OnAttack();
+                    //OnAttack();
                 }
                 else{
                     agent.SetDestination(player.transform.position);
@@ -77,7 +77,7 @@ public class PeasantAI : MonoBehaviour
         //if not, he will keep wandering around
         else
         {
-            animator.SetBool("isRunning", true);
+            animator.SetBool("isRunning", false);
 
             agent.speed = wanderSpeed;
 
@@ -85,7 +85,7 @@ public class PeasantAI : MonoBehaviour
 
             SearchForPlayer();
 
-            agent.speed = wanderSpeed;
+            
         }
     }
 
@@ -107,7 +107,7 @@ public class PeasantAI : MonoBehaviour
 
             }
         }
-        if (Vector3.Distance(player.transform.position, transform.position) < voiceDistance)
+        else if (Vector3.Distance(player.transform.position, transform.position) < voiceDistance)
         {
             OnAware();
         }
@@ -117,6 +117,7 @@ public class PeasantAI : MonoBehaviour
         isAware = true;
 
     }
+
 
     public void OnAttack()
     {
