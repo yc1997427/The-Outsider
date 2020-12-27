@@ -30,9 +30,11 @@ public class playerhealth : MonoBehaviour
         	anim.SetFloat("hit",hit);
         }
         if(curhealth<1){
+            GetComponent<CapsuleCollider>().direction=2;
         	anim.SetBool("death",true);
 
-            GetComponent<CapsuleCollider>().direction=2;
+            
+      
             //collider.direction=2;
         }
         if(Input.GetKeyUp(KeyCode.Return)){
