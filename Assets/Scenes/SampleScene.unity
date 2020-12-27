@@ -16308,6 +16308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 940278571}
+  wanderRadius: 30
   AwaredCountText: {fileID: 0}
 --- !u!54 &1530636059
 Rigidbody:

@@ -27,6 +27,9 @@ public class PeasantAI : MonoBehaviour
     bool nowMovingToTarget = false;
     float dist;
 
+    public float wanderRadius;
+
+
     public Text AwaredCountText;
 
 
@@ -78,22 +81,20 @@ public class PeasantAI : MonoBehaviour
                     //OnAttack();
                 }
                 else{
-                    agent.SetDestination(player.transform.position);
-                    animator.SetBool("isRunning", true);
-                    agent.speed = chaseSpeed;
 
-                    Debug.Log("Chasing player");
+                    animator.SetBool("isRunning", true);
+                    agent.SetDestination(player.transform.position);
+                    agent.speed=chaseSpeed;
                 }
             }
         }
         //if not, he will keep wandering around
         else
         {
-            animator.SetBool("isRunning", false);
-
+            Vector3 newPos=RandomNavSphere(transform.position, wanderRadius,-1);
+            agent.SetDestination(newPos);
+            animator.SetBool("isRunning", true);
             agent.speed = wanderSpeed;
-
-            agent.speed=wanderSpeed;
 
             SearchForPlayer();
 
@@ -124,6 +125,16 @@ public class PeasantAI : MonoBehaviour
             OnAware();
         }
     }
+
+    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermark){
+        Vector3 randDirection=UnityEngine.Random.insideUnitSphere*dist;
+        randDirection+=origin;
+        UnityEngine.AI.NavMeshHit navHit;
+        UnityEngine.AI.NavMesh.SamplePosition(randDirection,out navHit,dist,layermark);
+
+        return navHit.position;
+    }
+
     public void OnAware()
     {
         isAware = true;
