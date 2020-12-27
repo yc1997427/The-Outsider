@@ -11,6 +11,7 @@ public class playerhealth : MonoBehaviour
     public float maxhealth;
 
     public Slider healthBar;
+    public GameObject player; 
     private Animator anim;
     void Start()
     {
@@ -30,6 +31,9 @@ public class playerhealth : MonoBehaviour
         }
         if(curhealth<1){
         	anim.SetBool("death",true);
+
+            GetComponent<CapsuleCollider>().direction=2;
+            //collider.direction=2;
         }
         if(Input.GetKeyUp(KeyCode.Return)){
         	SendDamage(Random.Range(10,20));

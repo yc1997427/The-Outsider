@@ -17004,6 +17004,7 @@ MonoBehaviour:
   curhealth: 30
   maxhealth: 30
   healthBar: {fileID: 1937567852}
+  player: {fileID: 1634939190}
 --- !u!1 &1656477248
 GameObject:
   m_ObjectHideFlags: 0
