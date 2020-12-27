@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 public class PeasantAI : MonoBehaviour
 {
@@ -18,20 +20,30 @@ public class PeasantAI : MonoBehaviour
     int chaseSpeed = 30;
     int wanderSpeed = 8;
 
-    int numOfAwaredHumans = 0;
+    int numOfAwaredHumans;
 
     int attackRange = 0;
 
     bool nowMovingToTarget = false;
     float dist;
 
+    public Text AwaredCountText;
+
+
+
     private UnityEngine.AI.NavMeshAgent agent;
 
 
     void Start()
     {
+        
         animator = gameObject.GetComponent<Animator>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
+        Debug.Log(AwaredCountText.text.Split(':')[1]);
+
+        numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Split(':')[1]);
+
     }
 
     // Update is called once per frame
@@ -115,7 +127,13 @@ public class PeasantAI : MonoBehaviour
     public void OnAware()
     {
         isAware = true;
+        SetAwaredCountText();
 
+    }
+
+    public void SetAwaredCountText(){
+        numOfAwaredHumans+=1;
+        AwaredCountText.text=AwaredCountText.text.Split(':')[0]+numOfAwaredHumans.ToString();
     }
 
 
