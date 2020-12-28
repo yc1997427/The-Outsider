@@ -130,6 +130,7 @@
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Runtime\Models\AmbientOcclusionModel.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\Scripts\ExposureManager\ExposureManager.cs" />
     <Compile Include="Assets\Player\Player Controller\Scripts\CharacterController\vThirdPersonMotor.cs" />
+    <Compile Include="Assets\Enemy\enemy_Spawner.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
