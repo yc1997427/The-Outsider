@@ -16,7 +16,7 @@ public class PeasantAI : MonoBehaviour
     int viewDistance = 20;
 
     int voiceDistance = 10;
-    int fov = 180;
+    int fov = 360;
     int chaseSpeed = 15;
     int wanderSpeed = 15;
 
@@ -27,10 +27,12 @@ public class PeasantAI : MonoBehaviour
     bool nowMovingToTarget = false;
     float dist;
 
-    public float wanderRadius;
+    public float wanderRadius=30.0f;
 
 
     public Text AwaredCountText;
+
+    public GameObject controller;
 
 
 
@@ -38,14 +40,16 @@ public class PeasantAI : MonoBehaviour
 
 
     void Start()
-    {
+    {   
+        controller=GameObject.FindWithTag("GameController");
+        numOfAwaredHumans=controller.GetComponent<GameController>().Awared();
         player=GameObject.FindWithTag("Player").transform;
         animator = gameObject.GetComponent<Animator>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
-        Debug.Log(AwaredCountText.text.Split(':')[1]);
+        
 
-        numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Split(':')[1]);
+        numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
 
     }
 
@@ -60,7 +64,7 @@ public class PeasantAI : MonoBehaviour
 
         if (isAware)
         {   
-            if(numOfAwaredHumans<10){
+            if(numOfAwaredHumans<1){
 
                 agent.SetDestination(new Vector3(499,0,784));
 
@@ -138,13 +142,16 @@ public class PeasantAI : MonoBehaviour
     public void OnAware()
     {
         isAware = true;
+  
         SetAwaredCountText();
 
     }
 
     public void SetAwaredCountText(){
         numOfAwaredHumans+=1;
-        AwaredCountText.text=AwaredCountText.text.Split(':')[0]+numOfAwaredHumans.ToString();
+        controller.GetComponent<GameController>().detected();
+        Debug.Log(numOfAwaredHumans);
+        AwaredCountText.text=numOfAwaredHumans.ToString();
     }
 
 
