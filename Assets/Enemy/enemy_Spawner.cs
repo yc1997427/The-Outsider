@@ -1,32 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class enemy_Spawner : MonoBehaviour
 {
-    public GameObject[] spawnpoints;
-    public GameObject enemy;
+    public List<PeasantAI> enemies;
+    public PeasantAI enemy;
+
+    [Range(0,100)]
+    public int numberOfEnemies=30;
+    private float range=10.0f;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        spawnpoints = new GameObject[5];
-        
-        for(int i=0; i<spawnpoints.Length; i++)
+        enemies = new List<PeasantAI>(); // init as type
+        for (int index = 0; index < numberOfEnemies; index++)
         {
-            spawnpoints[i] = transform.GetChild(i).gameObject;
+            PeasantAI spawned = Instantiate(enemy, RandomNavmeshLocation(range), Quaternion.identity) as PeasantAI;
+            enemies.Add(spawned);
         }
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
+    public Vector3 RandomNavmeshLocation(float radius){
+        Vector3 randomDirection= Random.insideUnitSphere * radius;
+        randomDirection += transform.position;
+        UnityEngine.AI.NavMeshHit hit;
+        Vector3 finalPosition = Vector3.zero;
+        if (UnityEngine.AI.NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
         {
-            int id = Random.Range(0, spawnpoints.Length);
-            Instantiate(enemy, spawnpoints[id].transform.position, spawnpoints[id].transform.rotation);
+            finalPosition = hit.position;
         }
+        return finalPosition;
     }
 }

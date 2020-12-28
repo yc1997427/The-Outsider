@@ -39,7 +39,7 @@ public class PeasantAI : MonoBehaviour
 
     void Start()
     {
-        
+        player=GameObject.FindWithTag("Player").transform;
         animator = gameObject.GetComponent<Animator>();
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
