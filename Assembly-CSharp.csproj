@@ -131,6 +131,7 @@
      <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Runtime\Models\AmbientOcclusionModel.cs" />
      <Compile Include="Assets\Environment\Sun_Temple\Scripts\ExposureManager\ExposureManager.cs" />
      <Compile Include="Assets\Player\Player Controller\Scripts\CharacterController\vThirdPersonMotor.cs" />
+     <Compile Include="Assets\Telekinesis.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Environment\Sun_Temple\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
