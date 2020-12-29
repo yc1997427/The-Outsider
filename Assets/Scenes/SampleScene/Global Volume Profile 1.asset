@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
   m_Name: Global Volume Profile 1
   m_EditorClassIdentifier: 
-  components: []
+  components:
+  - {fileID: 3904885436952283618}
 --- !u!114 &3904885436952283618
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -28,8 +29,8 @@ MonoBehaviour:
   active: 1
   m_AdvancedMode: 0
   enabled:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   colorMode:
     m_OverrideState: 0
     m_Value: 1
@@ -66,8 +67,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   maximumHeight:
-    m_OverrideState: 0
-    m_Value: 50
+    m_OverrideState: 1
+    m_Value: 3000
   albedo:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -75,11 +76,11 @@ MonoBehaviour:
     showAlpha: 1
     showEyeDropper: 1
   meanFreePath:
-    m_OverrideState: 0
-    m_Value: 400
+    m_OverrideState: 1
+    m_Value: 300
     min: 1
   enableVolumetricFog:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   anisotropy:
     m_OverrideState: 0
