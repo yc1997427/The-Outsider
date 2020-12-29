@@ -35158,6 +35158,10 @@ PrefabInstance:
       propertyPath: inEdit
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4425428723088313496, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4425428723088313499, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -64964,6 +64968,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 940278571}
+    - target: {fileID: 5423847677566609962, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
+      propertyPath: deathSplash
+      value: 
+      objectReference: {fileID: 1668907592422966, guid: d52fff590afb94928b60b4a60047d206, type: 3}
     - target: {fileID: 5534881905504034095, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.055603
@@ -65006,6 +65014,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5534881905504034095, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201284387727257255, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

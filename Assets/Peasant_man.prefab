@@ -863,6 +863,7 @@ MonoBehaviour:
   wanderRadius: 30
   AwaredCountText: {fileID: 0}
   controller: {fileID: 0}
+  deathSplash: {fileID: 1668907592422966, guid: d52fff590afb94928b60b4a60047d206, type: 3}
 --- !u!195 &5423847677566609965
 NavMeshAgent:
   m_ObjectHideFlags: 0

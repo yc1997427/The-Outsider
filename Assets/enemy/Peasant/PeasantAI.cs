@@ -34,6 +34,8 @@ public class PeasantAI : MonoBehaviour
 
     public GameObject controller;
 
+    public GameObject deathSplash;
+
 
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -48,8 +50,8 @@ public class PeasantAI : MonoBehaviour
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
         
-
         numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
+
 
     }
 
@@ -104,6 +106,17 @@ public class PeasantAI : MonoBehaviour
 
             
         }
+    }
+
+    private void OnTriggerEnter(Collider other){
+        Debug.Log("Collide");
+        if(other.CompareTag("Player")){
+            Debug.Log("Collide");
+            Instantiate(deathSplash,transform.position,Quaternion.identity);
+            GameObject.Destroy(gameObject);
+            
+        }
+
     }
 
     //detecting player if he is within the enemy viewdistance and foward sight.
