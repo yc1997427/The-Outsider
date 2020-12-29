@@ -109,9 +109,9 @@ public class PeasantAI : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        Debug.Log("Collide");
+   ;
         if(other.CompareTag("Player")){
-            Debug.Log("Collide");
+          
             Instantiate(deathSplash,transform.position,Quaternion.identity);
             GameObject.Destroy(gameObject);
             

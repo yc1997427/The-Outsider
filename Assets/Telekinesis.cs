@@ -125,9 +125,11 @@ public class Telekinesis : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, interactionDistance))
-        {
+        {	
+        	Debug.Log("nonono");
             if (hit.collider.CompareTag("Box"))
             {
+            	Debug.Log("Telekinesis");
                 heldObject = hit.collider.gameObject;
                 heldObject.transform.SetParent(holdPosition);
 
