@@ -4,17 +4,20 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Glass_Patterned_Lit
-  m_Shader: {fileID: 4800000, guid: 9b0d3f1fe670d5b4d9e53cbe6a9b0895, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7252379db4c18b641b517f2c91bb57e1, type: 3}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -47,7 +50,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: e07cc86f94a44b94fb3f099b75c04cf6, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -64,6 +67,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _RoughnessTexture:
         m_Texture: {fileID: 2800000, guid: 31e80536d9c42ad44811adeac9f3089e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -86,9 +93,18 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _UseAoMap: 0
+    - _UseColorMap: 1
+    - _UseEmissiveMap: 1
+    - _UseMetallicMap: 0
+    - _UseNormalMap: 1
+    - _UseRoughnessMap: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _ReflectionTint: {r: 1, g: 1, b: 1, a: 1}
     - _SkyColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
