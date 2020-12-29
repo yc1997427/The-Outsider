@@ -49713,7 +49713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd3333c06ac242fe9b309c83754b462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 963194227}
   interactionDistance: 30
   holdPosition: {fileID: 0}
   attractionSpeed: 5
