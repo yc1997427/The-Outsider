@@ -785,10 +785,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5534881905504034095}
   - component: {fileID: 5423847677566609963}
-  - component: {fileID: 5423847677566609964}
   - component: {fileID: 5423847677566609966}
   - component: {fileID: 5423847677566609962}
   - component: {fileID: 5423847677566609965}
+  - component: {fileID: 8201284387727257255}
   m_Layer: 0
   m_Name: Peasant_man
   m_TagString: Untagged
@@ -828,19 +828,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5423847677566609964
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5153254215933380501}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1, y: 2.09, z: 0.8}
-  m_Center: {x: 0, y: 1.03, z: 0.03}
 --- !u!95 &5423847677566609966
 Animator:
   serializedVersion: 3
@@ -875,6 +862,7 @@ MonoBehaviour:
   player: {fileID: 0}
   wanderRadius: 30
   AwaredCountText: {fileID: 0}
+  controller: {fileID: 0}
 --- !u!195 &5423847677566609965
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -897,6 +885,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &8201284387727257255
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153254215933380501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31
+  m_Height: 2.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5245609837635539374
 GameObject:
   m_ObjectHideFlags: 0
