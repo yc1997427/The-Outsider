@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AwaredhumanCount
   - Box
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -51803,7 +51803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194227}
   interactionDistance: 30
-  holdPosition: {fileID: 0}
+  holdPosition: {fileID: 1158965845}
   attractionSpeed: 5
   minThrowForce: 15
   maxThrowForce: 50
@@ -68213,6 +68213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peasant_man
       objectReference: {fileID: 0}
+    - target: {fileID: 5153254215933380501, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5423847677566609962, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
       propertyPath: player
       value: 
@@ -68221,6 +68225,10 @@ PrefabInstance:
       propertyPath: deathSplash
       value: 
       objectReference: {fileID: 1668907592422966, guid: d52fff590afb94928b60b4a60047d206, type: 3}
+    - target: {fileID: 5423847677566609963, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5534881905504034095, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.055603

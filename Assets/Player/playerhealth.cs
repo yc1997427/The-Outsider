@@ -44,6 +44,15 @@ public class playerhealth : MonoBehaviour
         
     }
 
+    public void OnTriggerEnter(Collider other){
+        if(other.tag =="Enemy"){       
+
+            SendDamage(Random.Range(10,20));
+            
+        }
+
+    }
+
     public void SendDamage(float damageValue){
     	curhealth-=damageValue;
     	healthBar.value=curhealth;
