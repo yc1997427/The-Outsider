@@ -65,32 +65,35 @@ public class PeasantAI : MonoBehaviour
 
 
         if (isAware)
-        {   
+        {   OnAttack();
             if(numOfAwaredHumans<1){
 
                 agent.SetDestination(new Vector3(499,0,784));
-
+                
                 
                 if ( agent.remainingDistance==0){
                     animator.SetBool("isRunning", false);
                     agent.speed = 0;
+                    
                 }
                 else{
                     animator.SetBool("isRunning", true);
                     agent.speed = chaseSpeed;
+                   
                 }
             }
             else{
                 if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
                 {            
                     agent.speed = wanderSpeed;
-                    //OnAttack();
+                    OnAttack();
                 }
                 else{
 
                     animator.SetBool("isRunning", true);
                     agent.SetDestination(player.transform.position);
                     agent.speed=chaseSpeed;
+                    //animator.SetBool("attack", false);
                 }
             }
         }
@@ -108,8 +111,8 @@ public class PeasantAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other){
-   ;
+    /*private void OnTriggerEnter(Collider other){
+   
         if(other.CompareTag("Player")){
           
             Instantiate(deathSplash,transform.position,Quaternion.identity);
@@ -117,7 +120,7 @@ public class PeasantAI : MonoBehaviour
             
         }
 
-    }
+    }*/
 
     //detecting player if he is within the enemy viewdistance and foward sight.
     public void SearchForPlayer()
@@ -170,6 +173,7 @@ public class PeasantAI : MonoBehaviour
 
     public void OnAttack()
     {
-
+        animator.SetBool("isAttack", true);
+        Debug.Log("attack");
     }
 }

@@ -29,14 +29,14 @@ public class playerhealth : MonoBehaviour
        
         	anim.SetFloat("hit",hit);
         }
-        if(curhealth<1){
+        /*if(curhealth<1){
             GetComponent<CapsuleCollider>().direction=2;
         	anim.SetBool("death",true);
 
             
       
             //collider.direction=2;
-        }
+        }*/
         if(Input.GetKeyUp(KeyCode.Return)){
         	SendDamage(Random.Range(10,20));
         }
