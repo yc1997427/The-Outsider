@@ -63,10 +63,13 @@ public class PeasantAI : MonoBehaviour
         //if he sees the player, he will chase up
         dist=agent.remainingDistance;
 
+        //if enemy see player;
 
         if (isAware)
         {   
             if(numOfAwaredHumans<1){
+
+                //if less than 10 of enemies awared player, they will run away from the player towards the temple 
                 OnAttack();
 
                 agent.SetDestination(new Vector3(499,0,784));
@@ -84,13 +87,15 @@ public class PeasantAI : MonoBehaviour
                 }
             }
             else{
+                // if more than 9 enemies have awared player, they will chase up player altogether and attack 
                 if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
                 {            
+                    //if player is within the attack range of enemies, they will attack with wander speed 
                     agent.speed = wanderSpeed;
                     OnAttack();
                 }
                 else{
-
+                    //if player is outside of enemy attack range, they will chase up player
                     animator.SetBool("isRunning", true);
                     agent.SetDestination(player.transform.position);
                     agent.speed=chaseSpeed;
@@ -101,6 +106,7 @@ public class PeasantAI : MonoBehaviour
         //if not, he will keep wandering around
         else
         {
+            //if the enemies is not aware of the player, they will wander around 
             Vector3 newPos=RandomNavSphere(transform.position, wanderRadius,-1);
             agent.SetDestination(newPos);
             animator.SetBool("isRunning", true);
@@ -113,7 +119,7 @@ public class PeasantAI : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other){
-
+        //detecting player collision 
    
         if(other.gameObject.tag =="Player"){
 
@@ -150,6 +156,7 @@ public class PeasantAI : MonoBehaviour
         }
     }
 
+    //assign a random position or target for enemies wander around 
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermark){
         Vector3 randDirection=UnityEngine.Random.insideUnitSphere*dist;
         randDirection+=origin;
@@ -159,6 +166,7 @@ public class PeasantAI : MonoBehaviour
         return navHit.position;
     }
 
+    // enemies aware player
     public void OnAware()
     {
         isAware = true;
@@ -167,6 +175,7 @@ public class PeasantAI : MonoBehaviour
 
     }
 
+    //set up the UI display text
     public void SetAwaredCountText(){
         numOfAwaredHumans+=1;
         controller.GetComponent<GameController>().detected();
@@ -175,6 +184,7 @@ public class PeasantAI : MonoBehaviour
     }
 
 
+    // attack player 
     public void OnAttack()
     {
         animator.SetBool("isAttack", true);
