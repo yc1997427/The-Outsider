@@ -36,10 +36,6 @@ public class PeasantAI : MonoBehaviour
 
     public GameObject deathSplash;
 
-    public float damageAmount = 50f;
-    [SerializeField] float attackTime = 2f;
-
-    public bool canAttack = true;
 
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -180,17 +176,5 @@ public class PeasantAI : MonoBehaviour
     {
         animator.SetBool("isAttack", true);
         Debug.Log("attack");
-        StartCoroutine(AttackTime());
     }
-    
-    IEnumerator AttackTime()
-    {
-        canAttack = false;
-       // wait for 0.3 sec then it will attack player
-        yield return new WaitForSeconds(0.3f);
-        playerhealth.singleton.DamagePlayer(damageAmount);
-        print(damageAmount);
-        yield return new WaitForSeconds(attackTime);
-        canAttack = true;
-     }
 }
