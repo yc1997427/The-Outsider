@@ -24,6 +24,7 @@ public class playerhealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //detect if player is hit 
         float hit =anim.GetFloat("isBeaten");
         if (hit >0){
             Debug.Log("hit");
@@ -45,6 +46,7 @@ public class playerhealth : MonoBehaviour
         
     }
 
+    //detect collision from enemy 
     public void OnCollisionEnter(Collision other){
         
         if(other.gameObject.tag =="Enemy"){       
@@ -55,6 +57,7 @@ public class playerhealth : MonoBehaviour
 
     }
 
+    //the player is health is damaged when he is hit, value of health bar also decreased 
     public void SendDamage(float damageValue){
         
     	curhealth-=damageValue;
