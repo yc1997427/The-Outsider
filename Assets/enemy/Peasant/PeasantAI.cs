@@ -112,16 +112,19 @@ public class PeasantAI : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter(Collider other){
+    private void OnCollisionEnter(Collision other){
+
    
-        if(other.CompareTag("Player")){
-          
+        if(other.gameObject.tag =="Player"){
+
             Instantiate(deathSplash,transform.position,Quaternion.identity);
             GameObject.Destroy(gameObject);
             
+            
+            
         }
 
-    }*/
+    }  
 
     //detecting player if he is within the enemy viewdistance and foward sight.
     public void SearchForPlayer()

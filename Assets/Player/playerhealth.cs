@@ -24,20 +24,20 @@ public class playerhealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float hit =anim.GetFloat("hit");
+        float hit =anim.GetFloat("isBeaten");
         if (hit >0){
             Debug.Log("hit");
        
         	anim.SetFloat("isBeaten",hit);
         }
-        if(curhealth<1){
+        /*if(curhealth<1){
             //GetComponent<CapsuleCollider>().direction=2;
         	anim.SetBool("death",true);
 
             
       
             //collider.direction=2;
-        }
+        }*/
         if(Input.GetKeyUp(KeyCode.Return)){
         	SendDamage(Random.Range(5,10));
         }
