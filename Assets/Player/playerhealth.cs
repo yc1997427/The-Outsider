@@ -26,19 +26,20 @@ public class playerhealth : MonoBehaviour
     {
         float hit =anim.GetFloat("hit");
         if (hit >0){
+            Debug.Log("hit");
        
-        	anim.SetFloat("hit",hit);
+        	anim.SetFloat("isBeaten",hit);
         }
-        /*if(curhealth<1){
-            GetComponent<CapsuleCollider>().direction=2;
+        if(curhealth<1){
+            //GetComponent<CapsuleCollider>().direction=2;
         	anim.SetBool("death",true);
 
             
       
             //collider.direction=2;
-        }*/
+        }
         if(Input.GetKeyUp(KeyCode.Return)){
-        	SendDamage(Random.Range(10,20));
+        	SendDamage(Random.Range(5,10));
         }
 
         
@@ -59,6 +60,6 @@ public class playerhealth : MonoBehaviour
     	curhealth-=damageValue;
     	healthBar.value=curhealth;
         Debug.Log(curhealth);
-    	anim.SetFloat("hit",1);
+    	anim.SetFloat("isBeaten",1);
     }
 }
