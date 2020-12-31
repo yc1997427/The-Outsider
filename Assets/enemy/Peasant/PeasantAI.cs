@@ -9,9 +9,9 @@ public class PeasantAI : MonoBehaviour
     // Start is called before the first frame update
     public Transform player;
     private Animator animator;
-    int MoveSpeed = 4;
-    int MaxDist = 10;
-    int MinDist = 5;
+    //int MoveSpeed = 4;
+    //int MaxDist = 10;
+    //int MinDist = 5;
     bool isAware = false;
     int viewDistance = 20;
 
@@ -24,7 +24,7 @@ public class PeasantAI : MonoBehaviour
 
     int attackRange = 3;
 
-    bool nowMovingToTarget = false;
+    //bool nowMovingToTarget = false;
     float dist;
 
     public float wanderRadius=30.0f;

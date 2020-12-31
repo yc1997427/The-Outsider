@@ -85,7 +85,7 @@ public class enemyAI : MonoBehaviour
     }
 }
 
-**/
+
 
 //using System.Collections;
 using System.Collections.Generic;
@@ -179,4 +179,4 @@ public class EnemyAI : MonoBehaviour
 
 
 }
-
+**/
