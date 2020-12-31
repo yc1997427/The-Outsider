@@ -44,9 +44,10 @@ public class playerhealth : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider other){
-        if(other.tag =="Enemy"){       
-
+    public void OnCollisionEnter(Collision other){
+        
+        if(other.gameObject.tag =="Enemy"){       
+            //Debug.Log("coll");
             SendDamage(Random.Range(10,20));
             
         }
@@ -54,8 +55,10 @@ public class playerhealth : MonoBehaviour
     }
 
     public void SendDamage(float damageValue){
+        
     	curhealth-=damageValue;
     	healthBar.value=curhealth;
+        Debug.Log(curhealth);
     	anim.SetFloat("hit",1);
     }
 }
