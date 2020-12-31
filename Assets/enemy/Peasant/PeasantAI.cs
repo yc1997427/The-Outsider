@@ -22,7 +22,7 @@ public class PeasantAI : MonoBehaviour
 
     int numOfAwaredHumans;
 
-    int attackRange = 0;
+    int attackRange = 3;
 
     bool nowMovingToTarget = false;
     float dist;
@@ -65,8 +65,9 @@ public class PeasantAI : MonoBehaviour
 
 
         if (isAware)
-        {   OnAttack();
+        {   
             if(numOfAwaredHumans<1){
+                OnAttack();
 
                 agent.SetDestination(new Vector3(499,0,784));
                 
