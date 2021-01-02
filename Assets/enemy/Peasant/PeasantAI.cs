@@ -156,7 +156,7 @@ public class PeasantAI : MonoBehaviour
             }
             punched=true;
         }
-        if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("k"))&&(Physics.Linecast(player.transform.position, transform.position, out hit, -1))){
+        if ((Input.GetKeyDown("k"))&&(Physics.Linecast(player.transform.position, transform.position, out hit, -1))){
             Instantiate(deathSplash,transform.position,Quaternion.identity);
             GameObject.Destroy(gameObject);
         }
