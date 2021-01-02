@@ -137,5 +137,9 @@ namespace Invector.vCharacterController
            
             animator.CrossFadeInFixedTime("TeleCast", 0.4f);
         }
+        public virtual void Shoot(){
+           
+            animator.CrossFadeInFixedTime("Shoot", 0.4f);
+        }
     }
 }
