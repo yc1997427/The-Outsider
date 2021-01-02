@@ -129,7 +129,7 @@ public class Telekinesis : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {	
-        	Debug.Log("nonono");
+
             if (hit.collider.CompareTag("Box"))
             {
             	Debug.Log("Telekinesis");
