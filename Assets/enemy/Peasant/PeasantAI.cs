@@ -38,6 +38,7 @@ public class PeasantAI : MonoBehaviour
 
     Animator otherAnimator;
 
+    bool punched =false;
 
     private UnityEngine.AI.NavMeshAgent agent;
 
@@ -148,10 +149,14 @@ public class PeasantAI : MonoBehaviour
         RaycastHit hit;
 
         if ((Input.GetKeyDown("j"))&&Vector3.Distance(player.transform.position, transform.position) < 5&&(Physics.Linecast(player.transform.position, transform.position, out hit, -1))){
-            Instantiate(deathSplash,transform.position,Quaternion.identity);
-            GameObject.Destroy(gameObject);
+
+            if(punched){
+                Instantiate(deathSplash,transform.position,Quaternion.identity);
+                GameObject.Destroy(gameObject);
+            }
+            punched=true;
         }
-        if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("k"))){
+        if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("k"))&&(Physics.Linecast(player.transform.position, transform.position, out hit, -1))){
             Instantiate(deathSplash,transform.position,Quaternion.identity);
             GameObject.Destroy(gameObject);
         }
