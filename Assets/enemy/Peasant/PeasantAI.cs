@@ -64,6 +64,7 @@ public class PeasantAI : MonoBehaviour
 
         //the enemy detects the player
         //if he sees the player, he will chase up
+        
         dist=agent.remainingDistance;
 
         //if enemy see player;
@@ -105,6 +106,7 @@ public class PeasantAI : MonoBehaviour
                     //animator.SetBool("attack", false);
                 }
             }
+            gotAttacked();
         }
         //if not, he will keep wandering around
         else
@@ -121,14 +123,17 @@ public class PeasantAI : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other){
+    /*private void OnCollisionEnter(Collision other){
         //detecting player collision 
         
         if(other.gameObject.tag =="Player"){
             int punchId = Animator.StringToHash("Punch");
             AnimatorStateInfo animStateInfo = otherAnimator.GetCurrentAnimatorStateInfo(0);
-            Debug.Log(Input.GetKeyDown("j"));
             if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("j"))){
+                Instantiate(deathSplash,transform.position,Quaternion.identity);
+                GameObject.Destroy(gameObject);
+            }
+            if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("k"))){
                 Instantiate(deathSplash,transform.position,Quaternion.identity);
                 GameObject.Destroy(gameObject);
             }
@@ -136,7 +141,22 @@ public class PeasantAI : MonoBehaviour
             
         }
 
-    }  
+    }*/
+
+    public void gotAttacked(){
+
+        RaycastHit hit;
+
+        if ((Input.GetKeyDown("j"))&&Vector3.Distance(player.transform.position, transform.position) < 5&&(Physics.Linecast(player.transform.position, transform.position, out hit, -1))){
+            Instantiate(deathSplash,transform.position,Quaternion.identity);
+            GameObject.Destroy(gameObject);
+        }
+        if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("k"))){
+            Instantiate(deathSplash,transform.position,Quaternion.identity);
+            GameObject.Destroy(gameObject);
+        }
+
+    }
 
     //detecting player if he is within the enemy viewdistance and foward sight.
     public void SearchForPlayer()
