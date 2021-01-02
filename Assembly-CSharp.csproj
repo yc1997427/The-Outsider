@@ -88,6 +88,7 @@
      <Compile Include="Assets\Player\Player Controller\Scripts\Generic\Utils\vComment.cs" />
      <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
      <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Runtime\Models\GrainModel.cs" />
+     <Compile Include="Assets\playerAttack.cs" />
      <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Runtime\Components\AmbientOcclusionComponent.cs" />
      <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Runtime\Components\TaaComponent.cs" />
      <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />

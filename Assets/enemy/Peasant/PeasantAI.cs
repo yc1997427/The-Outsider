@@ -36,6 +36,7 @@ public class PeasantAI : MonoBehaviour
 
     public GameObject deathSplash;
 
+    Animator otherAnimator;
 
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -46,7 +47,9 @@ public class PeasantAI : MonoBehaviour
         controller=GameObject.FindWithTag("GameController");
         numOfAwaredHumans=controller.GetComponent<GameController>().Awared();
         player=GameObject.FindWithTag("Player").transform;
+        otherAnimator=GameObject.FindWithTag("Player").GetComponent<Animator> ();
         animator = gameObject.GetComponent<Animator>();
+
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
         
@@ -120,13 +123,16 @@ public class PeasantAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision other){
         //detecting player collision 
-   
+        
         if(other.gameObject.tag =="Player"){
-
-            Instantiate(deathSplash,transform.position,Quaternion.identity);
-            GameObject.Destroy(gameObject);
-            
-            
+            int punchId = Animator.StringToHash("Punch");
+            AnimatorStateInfo animStateInfo = otherAnimator.GetCurrentAnimatorStateInfo(0);
+            Debug.Log(Input.GetKeyDown("j"));
+            if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("j"))){
+                Instantiate(deathSplash,transform.position,Quaternion.identity);
+                GameObject.Destroy(gameObject);
+            }
+                
             
         }
 
@@ -179,7 +185,7 @@ public class PeasantAI : MonoBehaviour
     public void SetAwaredCountText(){
         numOfAwaredHumans+=1;
         controller.GetComponent<GameController>().detected();
-        Debug.Log(numOfAwaredHumans);
+        //Debug.Log(numOfAwaredHumans);
         AwaredCountText.text=numOfAwaredHumans.ToString();
     }
 
@@ -188,6 +194,6 @@ public class PeasantAI : MonoBehaviour
     public void OnAttack()
     {
         animator.SetBool("isAttack", true);
-        Debug.Log("attack");
+        //Debug.Log("attack");
     }
 }

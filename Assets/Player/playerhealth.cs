@@ -27,7 +27,7 @@ public class playerhealth : MonoBehaviour
         //detect if player is hit 
         float hit =anim.GetFloat("isBeaten");
         if (hit >0){
-            Debug.Log("hit");
+            //Debug.Log("hit");
        
         	anim.SetFloat("isBeaten",hit);
         }
@@ -62,7 +62,7 @@ public class playerhealth : MonoBehaviour
         
     	curhealth-=damageValue;
     	healthBar.value=curhealth;
-        Debug.Log(curhealth);
+        //Debug.Log(curhealth);
     	anim.SetFloat("isBeaten",1);
     }
 }
