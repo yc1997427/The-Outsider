@@ -5850,7 +5850,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f97612ec1855d194f99030a8fc309e95, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.108
+  m_Volume: 0.24
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5960,7 +5960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4329e5f9f14a5354a8288feb7287d577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGM: {fileID: 119265948}
+  BGMusic: {fileID: 119265948}
 --- !u!1 &127928172
 GameObject:
   m_ObjectHideFlags: 0
@@ -39036,6 +39036,7 @@ GameObject:
   - component: {fileID: 1345099826}
   - component: {fileID: 1345099825}
   - component: {fileID: 1345099824}
+  - component: {fileID: 1345099827}
   m_Layer: 0
   m_Name: ENTRANCE TRIGGER
   m_TagString: Untagged
@@ -39119,6 +39120,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345099822}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1345099827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345099822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5feedca06b8269f41ba7c464bb82e842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: {fileID: 8300000, guid: e31f503b7bb94934581deb47f9332b12, type: 3}
+  volume: 41
 --- !u!1 &1347919534
 GameObject:
   m_ObjectHideFlags: 0
@@ -59007,7 +59022,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   enemy: {fileID: 5423847677566609962, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
-  numberOfEnemies: 8
+  numberOfEnemies: 10
 --- !u!4 &1811373112
 Transform:
   m_ObjectHideFlags: 0
