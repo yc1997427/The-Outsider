@@ -54,7 +54,7 @@ public class PeasantAI : MonoBehaviour
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
         
-        numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
+        //numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
 
 
     }
@@ -62,7 +62,7 @@ public class PeasantAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        numOfAwaredHumans=controller.GetComponent<GameController>().Awared();
         //the enemy detects the player
         //if he sees the player, he will chase up
         
@@ -72,10 +72,10 @@ public class PeasantAI : MonoBehaviour
 
         if (isAware)
         {   
-            if(numOfAwaredHumans<1){
+            if(numOfAwaredHumans<10){
 
                 //if less than 10 of enemies awared player, they will run away from the player towards the temple 
-                OnAttack();
+                //OnAttack();
 
                 agent.SetDestination(new Vector3(499,0,784));
                 
@@ -202,17 +202,18 @@ public class PeasantAI : MonoBehaviour
     {
         isAware = true;
   
-        SetAwaredCountText();
+
+        controller.GetComponent<GameController>().detected();
 
     }
 
     //set up the UI display text
-    public void SetAwaredCountText(){
+    /*public void SetAwaredCountText(){
         numOfAwaredHumans+=1;
         controller.GetComponent<GameController>().detected();
         //Debug.Log(numOfAwaredHumans);
-        AwaredCountText.text=numOfAwaredHumans.ToString();
-    }
+
+    }*/
 
 
     // attack player 
