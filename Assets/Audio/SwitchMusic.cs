@@ -6,8 +6,8 @@ public class SwitchMusic : MonoBehaviour
 {
 
     public AudioClip track;
-    [Range(0, 100)]
-    public int volume;
+//    [Range(0, 100)]
+//    public int volume;
 
     private AudioManager theAM;
 
@@ -28,7 +28,7 @@ public class SwitchMusic : MonoBehaviour
         {
             if (track != null)
             {
-                theAM.ChangeSong(track, volume);
+                theAM.ChangeSong(track);
             }
         }
     }

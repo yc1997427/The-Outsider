@@ -17,14 +17,13 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void ChangeSong(AudioClip music, int volume)
+    public void ChangeSong(AudioClip music)
     {
         if (BGMusic.clip.name != music.name)
         {
             BGMusic.Stop();
             BGMusic.clip = music;
             BGMusic.Play();
-            BGMusic.volume = volume/100;
         }
     }
 }
