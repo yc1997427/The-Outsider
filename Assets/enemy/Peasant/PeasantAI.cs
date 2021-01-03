@@ -16,7 +16,7 @@ public class PeasantAI : MonoBehaviour
 
     int viewDistance = 20;
 
-    int voiceDistance = 10;
+    //int voiceDistance = 0;
     int fov = 360;
     int chaseSpeed = 7;
     int wanderSpeed = 3;
@@ -99,9 +99,12 @@ public class PeasantAI : MonoBehaviour
                 }
             }
             else{
+                SearchForPlayer();
+                Debug.Log(controller.GetComponent<GameController>().secondAware());
 
                 // if more than 9 enemies have awared player, they will chase up player altogether and attack 
                 if(chase&&controller.GetComponent<GameController>().secondAware()){
+
                     if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
                     {            
                     //if player is within the attack range of enemies, they will attack with wander speed 
@@ -199,20 +202,21 @@ public class PeasantAI : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Player"))
                     {
+                        if(isAware){
+                            controller.GetComponent<GameController>().OnSecondAware();
+                        }
                         OnAware();
                     }
                 }
 
             }
         }
-        else if (Vector3.Distance(player.transform.position, transform.position) < voiceDistance)
+        /*else if (Vector3.Distance(player.transform.position, transform.position) < voiceDistance)
         {   
-            if(isAware){
-                controller.GetComponent<GameController>().OnSecondAware();
-            }
+
             OnAware();
 
-        }
+        }*/
     }
 
     //assign a random position or target for enemies wander around 
