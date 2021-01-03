@@ -41,6 +41,7 @@ public class PeasantAI : MonoBehaviour
     Animator otherAnimator;
 
     bool punched =false;
+    Vector3 target;
 
     private UnityEngine.AI.NavMeshAgent agent;
 
@@ -55,6 +56,8 @@ public class PeasantAI : MonoBehaviour
 
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
+
+        target=new Vector3(499,0,650);
         
         //numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
 
@@ -68,23 +71,24 @@ public class PeasantAI : MonoBehaviour
         //the enemy detects the player
         //if he sees the player, he will chase up
         
-        dist=agent.remainingDistance;
+        dist=Vector3.Distance(transform.position, target);;
 
         //if enemy see player;
 
         if (isAware)
         {   
-            if(numOfAwaredHumans<10){
+            if(numOfAwaredHumans<10||!chase){
 
                 //if less than 10 of enemies awared player, they will run away from the player towards the temple 
                 //OnAttack();
 
-                agent.SetDestination(new Vector3(499,0,784));
+                agent.SetDestination(target);
                 
                 
-                if ( agent.remainingDistance==0){
+                if ( dist<15){
                     animator.SetBool("isRunning", false);
                     agent.speed = 0;
+                    chase=true;
                     
                 }
                 else{
@@ -94,20 +98,25 @@ public class PeasantAI : MonoBehaviour
                 }
             }
             else{
+
                 // if more than 9 enemies have awared player, they will chase up player altogether and attack 
-                if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
-                {            
+                if(chase){
+                    if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
+                    {            
                     //if player is within the attack range of enemies, they will attack with wander speed 
-                    agent.speed = wanderSpeed;
-                    OnAttack();
-                }
-                else{
+                        agent.speed = wanderSpeed;
+                        OnAttack();
+                    }
+                    else{
                     //if player is outside of enemy attack range, they will chase up player
-                    animator.SetBool("isRunning", true);
-                    agent.SetDestination(player.transform.position);
-                    agent.speed=chaseSpeed;
+                        animator.SetBool("isRunning", true);
+                        agent.SetDestination(player.transform.position);
+                        agent.speed=chaseSpeed;
                     //animator.SetBool("attack", false);
+                    }
+
                 }
+
             }
             gotAttacked();
         }
@@ -169,8 +178,7 @@ public class PeasantAI : MonoBehaviour
                 if (hit.transform.CompareTag("Enemy")){
                     
                     Instantiate(deathSplash,transform.position,Quaternion.identity);
-                    GameObject.Destroy(gameObject);
-                        
+                    GameObject.Destroy(gameObject);        
                     
                 }
             
