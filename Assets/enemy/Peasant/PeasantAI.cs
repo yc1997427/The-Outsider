@@ -13,6 +13,7 @@ public class PeasantAI : MonoBehaviour
     //int MaxDist = 10;
     //int MinDist = 5;
     bool isAware = false;
+
     int viewDistance = 20;
 
     int voiceDistance = 10;
@@ -100,7 +101,7 @@ public class PeasantAI : MonoBehaviour
             else{
 
                 // if more than 9 enemies have awared player, they will chase up player altogether and attack 
-                if(chase){
+                if(chase&&controller.GetComponent<GameController>().secondAware()){
                     if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
                     {            
                     //if player is within the attack range of enemies, they will attack with wander speed 
@@ -205,8 +206,12 @@ public class PeasantAI : MonoBehaviour
             }
         }
         else if (Vector3.Distance(player.transform.position, transform.position) < voiceDistance)
-        {
+        {   
+            if(isAware){
+                controller.GetComponent<GameController>().OnSecondAware();
+            }
             OnAware();
+
         }
     }
 
