@@ -86,8 +86,8 @@ public class PeasantAI : MonoBehaviour
                 
                 
                 if ( dist<15){
-                    animator.SetBool("isRunning", false);
-                    agent.speed = 0;
+                    animator.SetBool("isRunning", true);
+                    agent.speed = wanderSpeed;
                     chase=true;
                     
                 }
@@ -107,13 +107,12 @@ public class PeasantAI : MonoBehaviour
                         agent.speed = wanderSpeed;
                         OnAttack();
                     }
-                    else{
+    
                     //if player is outside of enemy attack range, they will chase up player
-                        animator.SetBool("isRunning", true);
-                        agent.SetDestination(player.transform.position);
-                        agent.speed=chaseSpeed;
+                    animator.SetBool("isRunning", true);
+                    agent.SetDestination(player.transform.position);
+                    agent.speed=chaseSpeed;
                     //animator.SetBool("attack", false);
-                    }
 
                 }
 
