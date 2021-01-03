@@ -18,11 +18,13 @@ public class PeasantAI : MonoBehaviour
     int voiceDistance = 10;
     int fov = 360;
     int chaseSpeed = 15;
-    int wanderSpeed = 15;
+    int wanderSpeed = 5;
 
     int numOfAwaredHumans;
 
-    int attackRange = 3;
+    int attackRange = 5;
+
+    bool chase=false;
 
     //bool nowMovingToTarget = false;
     float dist;
@@ -148,17 +150,31 @@ public class PeasantAI : MonoBehaviour
 
         RaycastHit hit;
 
-        if ((Input.GetKeyDown("j"))&&Vector3.Distance(player.transform.position, transform.position) < 5&&(Physics.Linecast(player.transform.position, transform.position, out hit, -1))){
+        if ((Input.GetKeyDown("j"))&&Vector3.Distance(player.transform.position, transform.position) < 4){
+            if(Physics.Linecast(player.transform.position, transform.position, out hit, -1)){
 
-            if(punched){
-                Instantiate(deathSplash,transform.position,Quaternion.identity);
-                GameObject.Destroy(gameObject);
+                if (hit.transform.CompareTag("Enemy")){
+                    if(punched){
+                        Instantiate(deathSplash,transform.position,Quaternion.identity);
+                        GameObject.Destroy(gameObject);
+                        punched=true;
+                    }
+                }
+                punched=true;  
             }
-            punched=true;
         }
-        if ((Input.GetKeyDown("k"))&&(Physics.Linecast(player.transform.position, transform.position, out hit, -1))){
-            Instantiate(deathSplash,transform.position,Quaternion.identity);
-            GameObject.Destroy(gameObject);
+        if ((Input.GetKeyDown("k"))&&Vector3.Distance(player.transform.position, transform.position) < 4){
+            if(Physics.Linecast(player.transform.position, transform.position, out hit, -1)){
+
+                if (hit.transform.CompareTag("Enemy")){
+                    
+                    Instantiate(deathSplash,transform.position,Quaternion.identity);
+                    GameObject.Destroy(gameObject);
+                        
+                    
+                }
+            
+            }
         }
 
     }
