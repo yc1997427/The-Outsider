@@ -21,6 +21,8 @@ public class PeasantAI : MonoBehaviour
     int chaseSpeed = 9;
     int wanderSpeed = 3;
 
+    int SecondSearchDistance=25;
+
     int numOfAwaredHumans;
 
     int attackRange = 5;
@@ -120,7 +122,7 @@ public class PeasantAI : MonoBehaviour
 
                 }
                 else{
-                    SearchForPlayer();
+                    SecondSearchForPlayer();
                 }
 
             }
@@ -196,8 +198,8 @@ public class PeasantAI : MonoBehaviour
     //detecting player if he is within the enemy viewdistance and foward sight.
     public void SearchForPlayer()
     {
-        //if (Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)
-        //{
+        if (Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)
+        {
             if (Vector3.Distance(player.transform.position, transform.position) < viewDistance)
             {
                 RaycastHit hit;
@@ -205,21 +207,27 @@ public class PeasantAI : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Player"))
                     {
-                        if(isAware){
+                        /*if(isAware){
                             controller.GetComponent<GameController>().OnSecondAware();
-                        }
+                        }*/
                         OnAware();
                     }
                 }
 
             }
-        //}
+        }
+
         /*else if (Vector3.Distance(player.transform.position, transform.position) < voiceDistance)
         {   
 
             OnAware();
 
         }*/
+    }
+    public void SecondSearchForPlayer(){
+        if (Vector3.Distance(player.transform.position, transform.position) < SecondSearchDistance){
+            controller.GetComponent<GameController>().OnSecondAware();
+        }
     }
 
     //assign a random position or target for enemies wander around 

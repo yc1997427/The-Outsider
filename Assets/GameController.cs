@@ -48,4 +48,8 @@ public class GameController : MonoBehaviour
     public bool secondAware(){
         return isSecondAware;
     }
+    public void playerDied(){
+        playerDie=true;
+    }
+
 }
