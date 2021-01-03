@@ -16,3 +16,5 @@
  Music: Nameless Song: https://www.youtube.com/watch?v=304xAVC8EZE&ab_channel=MotoiSakuraba-Topic
  
  Dying music:Thanatos - Evangelion OST - Shiro Sagisu 鷺巣 詩郎 : https://www.youtube.com/watch?v=epaqSHMulnM&list=RDepaqSHMulnM&start_radio=1&ab_channel=Momentz
+ 
+ Ending Music: Komm Süsser Tod : https://www.youtube.com/watch?v=oIscL-Bjsq4&ab_channel=ArturoReyes
