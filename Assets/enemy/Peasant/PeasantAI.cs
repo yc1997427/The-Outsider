@@ -18,11 +18,13 @@ public class PeasantAI : MonoBehaviour
     int voiceDistance = 10;
     int fov = 360;
     int chaseSpeed = 15;
-    int wanderSpeed = 15;
+    int wanderSpeed = 5;
 
     int numOfAwaredHumans;
 
-    int attackRange = 3;
+    int attackRange = 5;
+
+    bool chase=false;
 
     //bool nowMovingToTarget = false;
     float dist;
@@ -36,7 +38,10 @@ public class PeasantAI : MonoBehaviour
 
     public GameObject deathSplash;
 
+    Animator otherAnimator;
 
+    bool punched =false;
+    Vector3 target;
 
     private UnityEngine.AI.NavMeshAgent agent;
 
@@ -46,11 +51,15 @@ public class PeasantAI : MonoBehaviour
         controller=GameObject.FindWithTag("GameController");
         numOfAwaredHumans=controller.GetComponent<GameController>().Awared();
         player=GameObject.FindWithTag("Player").transform;
+        otherAnimator=GameObject.FindWithTag("Player").GetComponent<Animator> ();
         animator = gameObject.GetComponent<Animator>();
+
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
+
+        target=new Vector3(499,0,650);
         
-        numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
+        //numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
 
 
     }
@@ -58,26 +67,28 @@ public class PeasantAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        numOfAwaredHumans=controller.GetComponent<GameController>().Awared();
         //the enemy detects the player
         //if he sees the player, he will chase up
-        dist=agent.remainingDistance;
+        
+        dist=Vector3.Distance(transform.position, target);;
 
         //if enemy see player;
 
         if (isAware)
         {   
-            if(numOfAwaredHumans<1){
+            if(numOfAwaredHumans<10||!chase){
 
                 //if less than 10 of enemies awared player, they will run away from the player towards the temple 
-                OnAttack();
+                //OnAttack();
 
-                agent.SetDestination(new Vector3(499,0,784));
+                agent.SetDestination(target);
                 
                 
-                if ( agent.remainingDistance==0){
-                    animator.SetBool("isRunning", false);
-                    agent.speed = 0;
+                if ( dist<15){
+                    animator.SetBool("isRunning", true);
+                    agent.speed = wanderSpeed;
+                    chase=true;
                     
                 }
                 else{
@@ -87,21 +98,26 @@ public class PeasantAI : MonoBehaviour
                 }
             }
             else{
+
                 // if more than 9 enemies have awared player, they will chase up player altogether and attack 
-                if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
-                {            
+                if(chase){
+                    if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
+                    {            
                     //if player is within the attack range of enemies, they will attack with wander speed 
-                    agent.speed = wanderSpeed;
-                    OnAttack();
-                }
-                else{
+                        agent.speed = wanderSpeed;
+                        OnAttack();
+                    }
+    
                     //if player is outside of enemy attack range, they will chase up player
                     animator.SetBool("isRunning", true);
                     agent.SetDestination(player.transform.position);
                     agent.speed=chaseSpeed;
                     //animator.SetBool("attack", false);
+
                 }
+
             }
+            gotAttacked();
         }
         //if not, he will keep wandering around
         else
@@ -118,19 +134,57 @@ public class PeasantAI : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other){
+    /*private void OnCollisionEnter(Collision other){
         //detecting player collision 
-   
+        
         if(other.gameObject.tag =="Player"){
-
-            Instantiate(deathSplash,transform.position,Quaternion.identity);
-            GameObject.Destroy(gameObject);
-            
-            
+            int punchId = Animator.StringToHash("Punch");
+            AnimatorStateInfo animStateInfo = otherAnimator.GetCurrentAnimatorStateInfo(0);
+            if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("j"))){
+                Instantiate(deathSplash,transform.position,Quaternion.identity);
+                GameObject.Destroy(gameObject);
+            }
+            if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("k"))){
+                Instantiate(deathSplash,transform.position,Quaternion.identity);
+                GameObject.Destroy(gameObject);
+            }
+                
             
         }
 
-    }  
+    }*/
+
+    public void gotAttacked(){
+
+        RaycastHit hit;
+
+        if ((Input.GetKeyDown("j"))&&Vector3.Distance(player.transform.position, transform.position) < 4){
+            if(Physics.Linecast(player.transform.position, transform.position, out hit, -1)){
+
+                if (hit.transform.CompareTag("Enemy")){
+                    if(punched){
+                        Instantiate(deathSplash,transform.position,Quaternion.identity);
+                        GameObject.Destroy(gameObject);
+                        punched=true;
+                    }
+                }
+                punched=true;  
+            }
+        }
+        if ((Input.GetKeyDown("k"))&&Vector3.Distance(player.transform.position, transform.position) < 4){
+            if(Physics.Linecast(player.transform.position, transform.position, out hit, -1)){
+
+                if (hit.transform.CompareTag("Enemy")){
+                    
+                    Instantiate(deathSplash,transform.position,Quaternion.identity);
+                    GameObject.Destroy(gameObject);        
+                    
+                }
+            
+            }
+        }
+
+    }
 
     //detecting player if he is within the enemy viewdistance and foward sight.
     public void SearchForPlayer()
@@ -171,23 +225,24 @@ public class PeasantAI : MonoBehaviour
     {
         isAware = true;
   
-        SetAwaredCountText();
+
+        controller.GetComponent<GameController>().detected();
 
     }
 
     //set up the UI display text
-    public void SetAwaredCountText(){
+    /*public void SetAwaredCountText(){
         numOfAwaredHumans+=1;
         controller.GetComponent<GameController>().detected();
-        Debug.Log(numOfAwaredHumans);
-        AwaredCountText.text=numOfAwaredHumans.ToString();
-    }
+        //Debug.Log(numOfAwaredHumans);
+
+    }*/
 
 
     // attack player 
     public void OnAttack()
     {
         animator.SetBool("isAttack", true);
-        Debug.Log("attack");
+        //Debug.Log("attack");
     }
 }

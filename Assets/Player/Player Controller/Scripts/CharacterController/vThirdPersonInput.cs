@@ -85,6 +85,8 @@ namespace Invector.vCharacterController
             JumpInput();
             PunchInput();
             KickInput();
+            TeleCastInput();
+            ShootInput();
         }
         //taking player input to move 
         public virtual void MoveInput()
@@ -161,6 +163,16 @@ namespace Invector.vCharacterController
         protected virtual void KickInput(){
             if(Input.GetKeyDown(kickInput)){
                 cc.Kick();
+            }
+        }
+        protected virtual void TeleCastInput(){
+            if(Input.GetMouseButtonUp(0)){
+                cc.TeleCast();
+            }
+        }
+        protected virtual void ShootInput(){
+            if(Input.GetMouseButtonUp(1)){
+                cc.Shoot();
             }
         }
 

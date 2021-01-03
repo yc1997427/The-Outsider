@@ -127,11 +127,19 @@ namespace Invector.vCharacterController
 
         //trigger punch animation
         public virtual void Punch(){
-            animator.CrossFadeInFixedTime("Punch", 0.1f);
+            animator.CrossFadeInFixedTime("Punch", 0.2f);
         }
         //trigger kick animation
         public virtual void Kick(){
             animator.CrossFadeInFixedTime("Kick", 0.2f);
+        }
+        public virtual void TeleCast(){
+           
+            animator.CrossFadeInFixedTime("TeleCast", 0.3f);
+        }
+        public virtual void Shoot(){
+           
+            animator.CrossFadeInFixedTime("Shoot", 0.3f);
         }
     }
 }

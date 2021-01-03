@@ -16,10 +16,12 @@ public class Telekinesis : MonoBehaviour
     private Rigidbody rbOfHeldObject;
     private bool holdsObject = false;
     private Vector3 rotateVector = Vector3.one;
+    private Animator animator;
     
     void Start()
     {
         throwForce = minThrowForce;
+        animator = gameObject.GetComponent<Animator>();
     }
     
     
@@ -116,6 +118,7 @@ public class Telekinesis : MonoBehaviour
         rbOfHeldObject.AddForce(mainCamera.transform.forward * throwForce, ForceMode.Impulse);
         throwForce = minThrowForce;
         ReleaseObject();
+
     }
 
     private void Raycast()
@@ -126,7 +129,7 @@ public class Telekinesis : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {	
-        	Debug.Log("nonono");
+
             if (hit.collider.CompareTag("Box"))
             {
             	Debug.Log("Telekinesis");
