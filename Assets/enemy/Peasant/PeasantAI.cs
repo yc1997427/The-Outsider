@@ -99,8 +99,8 @@ public class PeasantAI : MonoBehaviour
                 }
             }
             else{
-                SearchForPlayer();
-                Debug.Log(controller.GetComponent<GameController>().secondAware());
+    
+                //Debug.Log(controller.GetComponent<GameController>().secondAware());
 
                 // if more than 9 enemies have awared player, they will chase up player altogether and attack 
                 if(chase&&controller.GetComponent<GameController>().secondAware()){
@@ -118,6 +118,9 @@ public class PeasantAI : MonoBehaviour
                     agent.speed=chaseSpeed;
                     //animator.SetBool("attack", false);
 
+                }
+                else{
+                    SearchForPlayer();
                 }
 
             }
