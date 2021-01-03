@@ -17,8 +17,8 @@ public class PeasantAI : MonoBehaviour
 
     int voiceDistance = 10;
     int fov = 360;
-    int chaseSpeed = 15;
-    int wanderSpeed = 5;
+    int chaseSpeed = 7;
+    int wanderSpeed = 3;
 
     int numOfAwaredHumans;
 
