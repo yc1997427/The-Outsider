@@ -13,12 +13,15 @@ public class playerhealth : MonoBehaviour
     public Slider healthBar;
     public GameObject player; 
     private Animator anim;
+    public GameObject controller;
     void Start()
     {
         curhealth=maxhealth;
         healthBar.value=curhealth;
         healthBar.maxValue=maxhealth;
         anim=GetComponent<Animator>();
+
+        controller=GameObject.FindWithTag("GameController");
     }
 
     // Update is called once per frame
@@ -31,14 +34,13 @@ public class playerhealth : MonoBehaviour
        
         	anim.SetFloat("isBeaten",hit);
         }
-        /*if(curhealth<1){
+        if(curhealth<1){
             //GetComponent<CapsuleCollider>().direction=2;
         	anim.SetBool("death",true);
+            GameObject.Destroy(gameObject);
 
-            
-      
             //collider.direction=2;
-        }*/
+        }
         if(Input.GetKeyUp(KeyCode.Return)){
         	SendDamage(Random.Range(5,10));
         }
@@ -49,9 +51,9 @@ public class playerhealth : MonoBehaviour
     //detect collision from enemy 
     public void OnCollisionEnter(Collision other){
         
-        if(other.gameObject.tag =="Enemy"){       
+        if(other.gameObject.tag =="Enemy"&&controller.GetComponent<GameController>().secondAware()){       
             //Debug.Log("coll");
-            SendDamage(Random.Range(10,20));
+            SendDamage(Random.Range(5,10));
             
         }
 

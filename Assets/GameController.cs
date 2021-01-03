@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
 
     public bool isSecondAware=false;
 
+    public bool playerDie=false;
+
     void Start()
     {
        
@@ -28,12 +30,16 @@ public class GameController : MonoBehaviour
     	numberOfAwared+=1;
     }
     public void SetAwaredCountText(){
-        if(! isSecondAware){
+        if(! isSecondAware&&!playerDie){
             AwaredCountText.text = "Awaredhumans: "+numberOfAwared.ToString();
         }  
         else{
             AwaredCountText.text ="They are coming!";
         }
+        if(playerDie){
+            AwaredCountText.text ="Game Over";
+        }
+
         
     }
     public void OnSecondAware(){
