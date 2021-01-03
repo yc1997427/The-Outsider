@@ -80,6 +80,9 @@ public class PeasantAI : MonoBehaviour
 
         if (isAware)
         {   
+            if(controller.GetComponent<GameController>().playerDeath()){
+                animator.SetBool("isPlayerDied", true);
+            }
             if(numOfAwaredHumans<10||!chase){
 
                 //if less than 10 of enemies awared player, they will run away from the player towards the temple 

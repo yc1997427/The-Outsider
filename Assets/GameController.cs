@@ -52,4 +52,8 @@ public class GameController : MonoBehaviour
         playerDie=true;
     }
 
+    public bool playerDeath(){
+        return playerDie; 
+    }
+
 }
