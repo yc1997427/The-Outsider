@@ -21,7 +21,7 @@ public class PeasantAI : MonoBehaviour
     int chaseSpeed = 9;
     int wanderSpeed = 3;
 
-    int SecondSearchDistance=25;
+    int SecondSearchDistance=50;
 
     int numOfAwaredHumans;
 
@@ -69,7 +69,10 @@ public class PeasantAI : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if(controller.GetComponent<GameController>().playerDeath()){
+            animator.SetBool("isPlayerDied", true);
+        }
         numOfAwaredHumans=controller.GetComponent<GameController>().Awared();
         //the enemy detects the player
         //if he sees the player, he will chase up
@@ -80,9 +83,6 @@ public class PeasantAI : MonoBehaviour
 
         if (isAware)
         {   
-            if(controller.GetComponent<GameController>().playerDeath()){
-                animator.SetBool("isPlayerDied", true);
-            }
             if(numOfAwaredHumans<10||!chase){
 
                 //if less than 10 of enemies awared player, they will run away from the player towards the temple 
