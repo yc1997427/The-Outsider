@@ -1,2 +1,6 @@
 Base path: '/Users/waWang/Documents/2020.1.10f1/Unity.app/Contents', plugins path '/Users/waWang/Documents/2020.1.10f1/Unity.app/Contents/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=14 insize=40272 outsize=108530 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=40272 outsize=112237 ok=1

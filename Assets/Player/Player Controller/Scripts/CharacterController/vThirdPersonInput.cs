@@ -14,6 +14,7 @@ namespace Invector.vCharacterController
         public KeyCode sprintInput = KeyCode.LeftShift;
         public string punchInput="j";
         public string kickInput="k";
+        public string adamInput="m";
 
         [Header("Camera Input")]
         public string rotateCameraXInput = "Mouse X";
@@ -87,6 +88,7 @@ namespace Invector.vCharacterController
             KickInput();
             TeleCastInput();
             ShootInput();
+            AdamInput();
         }
         //taking player input to move 
         public virtual void MoveInput()
@@ -173,6 +175,11 @@ namespace Invector.vCharacterController
         protected virtual void ShootInput(){
             if(Input.GetMouseButtonUp(1)){
                 cc.Shoot();
+            }
+        }
+        protected virtual void AdamInput(){
+            if(Input.GetKeyDown(adamInput)){
+                cc.Adam();
             }
         }
 

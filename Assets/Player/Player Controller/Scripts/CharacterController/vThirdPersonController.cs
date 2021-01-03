@@ -141,5 +141,9 @@ namespace Invector.vCharacterController
            
             animator.CrossFadeInFixedTime("Shoot", 0.3f);
         }
+        public virtual void Adam(){
+           
+            animator.CrossFadeInFixedTime("Adam", 0.35f);
+        }
     }
 }
