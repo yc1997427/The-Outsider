@@ -32,7 +32,7 @@ public class PeasantAI : MonoBehaviour
     //bool nowMovingToTarget = false;
     float dist;
 
-    public float wanderRadius=30.0f;
+    public float wanderRadius=100.0f;
 
 
     public Text AwaredCountText;
