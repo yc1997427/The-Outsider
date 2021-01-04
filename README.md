@@ -22,3 +22,5 @@
  Background music: Ludwig, The Accursed & Holy Blade https://www.youtube.com/watch?v=ALbVEmzY5S4&ab_channel=Shirrako
  
  Background music: Lady Maria https://www.youtube.com/watch?v=8mByDcrNSV0&ab_channel=Shirrako
+
+ Background music:Escape To The Beginning https://www.youtube.com/watch?v=uNEGJwdlwm4&list=PLGkHtUoJlVfsFQZm7x5trSwImG3kCgKf1&index=9&ab_channel=RiskingDark
