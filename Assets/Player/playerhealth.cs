@@ -37,7 +37,7 @@ public class playerhealth : MonoBehaviour
         if(curhealth<1){
             //GetComponent<CapsuleCollider>().direction=2;
         	anim.SetBool("death",true);
-            GameObject.Destroy(gameObject);
+            //GameObject.Destroy(gameObject);
             controller.GetComponent<GameController>().playerDied();
 
             //collider.direction=2;
