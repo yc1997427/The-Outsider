@@ -10,7 +10,7 @@ public class enemy_Spawner : MonoBehaviour
 
     [Range(0,100)]
     public int numberOfEnemies=30;
-    private float range=10.0f;
+    private float range=25.0f;
 
     // Start is called before the first frame update
     void Start()
