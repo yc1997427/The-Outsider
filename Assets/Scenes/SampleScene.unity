@@ -16709,6 +16709,7 @@ MonoBehaviour:
   AwaredCountText: {fileID: 1281834405}
   isSecondAware: 0
   playerDie: 0
+  playerDieMusic: {fileID: 8300000, guid: 7ab5c83f5d17049fca46e6391e03882a, type: 3}
 --- !u!4 &318507187
 Transform:
   m_ObjectHideFlags: 0

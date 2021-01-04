@@ -13,14 +13,25 @@ public class GameController : MonoBehaviour
 
     public bool playerDie=false;
 
+    public AudioClip playerDieMusic;
+    public AudioClip secondAwareMusic;
+
+    private AudioManager theAM;
+
     void Start()
     {
-       
+       theAM = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(playerDie){
+            theAM.ChangeSong(playerDieMusic);
+        }
+        if(isSecondAware){
+            theAM.ChangeSong(secondAwareMusic);
+        }
         SetAwaredCountText();
     }
     public int Awared(){
