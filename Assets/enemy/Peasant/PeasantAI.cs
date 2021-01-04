@@ -14,14 +14,14 @@ public class PeasantAI : MonoBehaviour
     //int MinDist = 5;
     bool isAware = false;
 
-    int viewDistance = 20;
+    int viewDistance = 35;
 
     //int voiceDistance = 0;
     int fov = 360;
     int chaseSpeed = 9;
     int wanderSpeed = 3;
 
-    int SecondSearchDistance=50;
+    int SecondSearchDistance=70;
 
     int numOfAwaredHumans;
 
