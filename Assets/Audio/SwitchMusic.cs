@@ -5,7 +5,9 @@ using UnityEngine;
 public class SwitchMusic : MonoBehaviour
 {
 
-    public AudioClip track;
+    public AudioClip enteringTrack;
+    private bool leaving=false;
+    public AudioClip leavingTrack;
 //    [Range(0, 100)]
 //    public int volume;
 
@@ -24,11 +26,19 @@ public class SwitchMusic : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player"&&!leaving)
         {
-            if (track != null)
+            if (enteringTrack != null)
             {
-                theAM.ChangeSong(track);
+                theAM.ChangeSong(enteringTrack);
+                leaving=true;
+            }
+        }
+        if (other.tag == "Player"&&!leaving){
+            if (leavingTrack != null)
+            {
+                theAM.ChangeSong(leavingTrack);
+                leaving=false;
             }
         }
     }

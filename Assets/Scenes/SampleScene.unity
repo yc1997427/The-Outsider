@@ -16711,6 +16711,7 @@ MonoBehaviour:
   playerDie: 0
   playerDieMusic: {fileID: 8300000, guid: 7ab5c83f5d17049fca46e6391e03882a, type: 3}
   secondAwareMusic: {fileID: 8300000, guid: de7ef50f257d64030b7fb60986d7b26e, type: 3}
+  encounterEnemyMusic: {fileID: 8300000, guid: b9405fcc882f243248e32db14191327e, type: 3}
 --- !u!4 &318507187
 Transform:
   m_ObjectHideFlags: 0
@@ -16989,7 +16990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5feedca06b8269f41ba7c464bb82e842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: f97612ec1855d194f99030a8fc309e95, type: 3}
+  enteringTrack: {fileID: 0}
+  leavingTrack: {fileID: 0}
 --- !u!65 &404034264
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28802,7 +28804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5feedca06b8269f41ba7c464bb82e842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 2928783c334df48a5b728f6b581fe3b7, type: 3}
+  enteringTrack: {fileID: 0}
+  leavingTrack: {fileID: 0}
 --- !u!65 &623976461
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35887,7 +35890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5feedca06b8269f41ba7c464bb82e842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: e31f503b7bb94934581deb47f9332b12, type: 3}
+  enteringTrack: {fileID: 8300000, guid: e31f503b7bb94934581deb47f9332b12, type: 3}
+  leavingTrack: {fileID: 8300000, guid: 3960bde9b0c4343f1a86baceb7893e21, type: 3}
 --- !u!65 &930784962
 BoxCollider:
   m_ObjectHideFlags: 0

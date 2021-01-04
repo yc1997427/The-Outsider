@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
             if(!encounterEnemyMusicPlayed){
                 theAM.ChangeSong(encounterEnemyMusic);
             }
-            encounterEnemyMusicPlayed=false;
+            encounterEnemyMusicPlayed=true;
         }
         if(playerDie){
             theAM.ChangeSong(playerDieMusic);
