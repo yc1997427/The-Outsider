@@ -7,6 +7,7 @@ TagManager:
   - AwaredhumanCount
   - Box
   - Enemy
+  - Ashes
   layers:
   - Default
   - TransparentFX

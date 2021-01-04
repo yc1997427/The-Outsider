@@ -7,7 +7,9 @@ public class SwitchMusic : MonoBehaviour
 
     public AudioClip enteringTrack;
     private bool leaving=false;
-    public AudioClip leavingTrack;
+    /*private bool enteringTrackPlayed=false;
+    public AudioClip leavingTrack;*/
+
 //    [Range(0, 100)]
 //    public int volume;
 
@@ -32,15 +34,16 @@ public class SwitchMusic : MonoBehaviour
             {
                 theAM.ChangeSong(enteringTrack);
                 leaving=true;
+                //enteringTrackPlayed=true;
             }
         }
-        if (other.tag == "Player"&&!leaving){
+        /*if (other.tag == "Player"&&leaving&&enteringTrackPlayed){
             if (leavingTrack != null)
             {
                 theAM.ChangeSong(leavingTrack);
                 leaving=false;
             }
-        }
+        }*/
     }
 
 }
