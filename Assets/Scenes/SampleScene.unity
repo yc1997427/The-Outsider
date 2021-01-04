@@ -23023,7 +23023,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   enemy: {fileID: 5423847677566609962, guid: f63e41ef037de4188a56ffb917cf9fe4, type: 3}
-  numberOfEnemies: 13
+  numberOfEnemies: 7
 --- !u!4 &499476124
 Transform:
   m_ObjectHideFlags: 0
