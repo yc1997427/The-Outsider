@@ -16710,6 +16710,7 @@ MonoBehaviour:
   isSecondAware: 0
   playerDie: 0
   playerDieMusic: {fileID: 8300000, guid: 7ab5c83f5d17049fca46e6391e03882a, type: 3}
+  secondAwareMusic: {fileID: 8300000, guid: de7ef50f257d64030b7fb60986d7b26e, type: 3}
 --- !u!4 &318507187
 Transform:
   m_ObjectHideFlags: 0
@@ -36652,7 +36653,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1a288e2c4a5448ef8ae7da9eb783134, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
