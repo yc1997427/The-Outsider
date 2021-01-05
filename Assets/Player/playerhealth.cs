@@ -38,11 +38,12 @@ public class playerhealth : MonoBehaviour
        
         	anim.SetFloat("isBeaten",hit);
         }
-        if(curhealth<1){
+        if(curhealth<1&&!isDead){
             //GetComponent<CapsuleCollider>().direction=2;
         	anim.SetBool("death",true);
             //GameObject.Destroy(gameObject);
             controller.GetComponent<GameController>().playerDied();
+            isDead=true;
 
             //collider.direction=2;
         }
