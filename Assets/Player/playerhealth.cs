@@ -17,7 +17,7 @@ public class playerhealth : MonoBehaviour
 
     public Text healthcounter;
     public bool isDead = false;
-    public bool deathAnimationPlayed=false
+    public bool deathAnimationPlayed=false;
     void Start()
     {
         curhealth=maxhealth;
