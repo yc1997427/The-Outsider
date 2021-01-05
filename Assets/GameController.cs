@@ -38,14 +38,10 @@ public class GameController : MonoBehaviour
                 theAM.ChangeSong(encounterEnemyMusic);
             }
             encounterEnemyMusicPlayed=true;
-            story.text="Humans were aliens, they invaded earth";
+
         }
-        if(numberOfAwared>4){
-            story.text="They elinimated our species, only myself left";
-        }
-        if(numberOfAwared>6){
-            story.text="They are calling themselves aboriginals";
-        }
+
+
         if(playerDie){
             theAM.ChangeSong(playerDieMusic);
         }
@@ -58,11 +54,29 @@ public class GameController : MonoBehaviour
         SetAwaredCountText();
     }
     public int Awared(){
+
     	return numberOfAwared;
     }
     public void detected(){
     	numberOfAwared+=1;
+        tellingHumanStory();
     }
+
+    public void tellingHumanStory(){
+        if(numberOfAwared>0&&numberOfAwared<=4){
+            story.text="They humans were aliens, invaded my home-earth";
+        }
+        if(numberOfAwared>4&&numberOfAwared<=6){
+            story.text="They elinimated our specie, only myself left";
+        }
+        if(numberOfAwared>6&&numberOfAwared<=9){
+            story.text="They perverted history, calling themselves Earthlings";
+        }
+        if(numberOfAwared>9){
+            story.text="They call me monster, calling me invader";
+        }
+    }
+
     public void SetAwaredCountText(){
         if(!isSecondAware&&!playerDie){
             AwaredCountText.text = "Awaredhumans: "+numberOfAwared.ToString();
@@ -72,13 +86,25 @@ public class GameController : MonoBehaviour
         }
         if(playerDie){
             AwaredCountText.text ="Game Over";
-        }
-
-        
+        }        
     }
+
     public void OnSecondAware(){
+        if(!isSecondAware){
+            battellingStory();
+        }
         isSecondAware=true;
     }
+    public void battellingStory(){
+        story.text="I don't have to kill them myself, they are killing each other";
+    }
+
+    public void tellingMomStory(){
+        story.text="They slaughtered mom, worshiping her burnings as holy ashes";
+    }
+
+
+
     public bool secondAware(){
         return isSecondAware;
     }
