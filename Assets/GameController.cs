@@ -55,10 +55,10 @@ public class GameController : MonoBehaviour
     	numberOfAwared+=1;
     }
     public void SetAwaredCountText(){
-        if(! isSecondAware&&!playerDie){
+        if(!isSecondAware&&!playerDie){
             AwaredCountText.text = "Awaredhumans: "+numberOfAwared.ToString();
         }  
-        else{
+        if(isSecondAware&&!playerDie){
             AwaredCountText.text ="They are coming!";
         }
         if(playerDie){

@@ -45,6 +45,7 @@ public class playerhealth : MonoBehaviour
             //GameObject.Destroy(gameObject);
             controller.GetComponent<GameController>().playerDied();
             deathAnimationPlayed=true;
+            player.SetActive(false);
 
             //collider.direction=2;
         }
