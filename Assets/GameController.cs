@@ -66,10 +66,10 @@ public class GameController : MonoBehaviour
         if(numberOfAwared>0&&numberOfAwared<=4){
             story.text="They humans were aliens, invaded my home-earth";
         }
-        if(numberOfAwared>4){
+        if(numberOfAwared>4&&numberOfAwared<=6){
             story.text="They elinimated our specie, only myself left";
         }
-        if(numberOfAwared>6){
+        if(numberOfAwared>6&&numberOfAwared<=9){
             story.text="They perverted history, calling themselves Earthlings";
         }
         if(numberOfAwared>9){
