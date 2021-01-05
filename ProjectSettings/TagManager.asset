@@ -8,7 +8,6 @@ TagManager:
   - Box
   - Enemy
   - Ashes
-  - Story
   layers:
   - Default
   - TransparentFX

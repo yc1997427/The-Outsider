@@ -60,7 +60,7 @@ public class PeasantAI : MonoBehaviour
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
 
-        target=new Vector3(499,0,750);
+        target=new Vector3(499,0,650);
         
         //numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
 

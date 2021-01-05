@@ -17,7 +17,6 @@ public class playerhealth : MonoBehaviour
 
     public Text healthcounter;
     public bool isDead = false;
-    public bool deathAnimationPlayed=false;
     void Start()
     {
         curhealth=maxhealth;
@@ -39,13 +38,11 @@ public class playerhealth : MonoBehaviour
        
         	anim.SetFloat("isBeaten",hit);
         }
-        if(curhealth<1&&!deathAnimationPlayed){
+        if(curhealth<1){
             //GetComponent<CapsuleCollider>().direction=2;
         	anim.SetBool("death",true);
             //GameObject.Destroy(gameObject);
             controller.GetComponent<GameController>().playerDied();
-            deathAnimationPlayed=true;
-            player.SetActive(false);
 
             //collider.direction=2;
         }

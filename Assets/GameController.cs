@@ -23,8 +23,6 @@ public class GameController : MonoBehaviour
 
     private AudioManager theAM;
 
-    public Text story;
-
     void Start()
     {
        theAM = FindObjectOfType<AudioManager>();
@@ -38,13 +36,6 @@ public class GameController : MonoBehaviour
                 theAM.ChangeSong(encounterEnemyMusic);
             }
             encounterEnemyMusicPlayed=true;
-            story.text="Humans were aliens, they invaded earth";
-        }
-        if(numberOfAwared>4){
-            story.text="They elinimated our species, only myself left";
-        }
-        if(numberOfAwared>6){
-            story.text="They are calling themselves aboriginals";
         }
         if(playerDie){
             theAM.ChangeSong(playerDieMusic);
@@ -64,10 +55,10 @@ public class GameController : MonoBehaviour
     	numberOfAwared+=1;
     }
     public void SetAwaredCountText(){
-        if(!isSecondAware&&!playerDie){
+        if(! isSecondAware&&!playerDie){
             AwaredCountText.text = "Awaredhumans: "+numberOfAwared.ToString();
         }  
-        if(isSecondAware&&!playerDie){
+        else{
             AwaredCountText.text ="They are coming!";
         }
         if(playerDie){
