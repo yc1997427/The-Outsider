@@ -14,6 +14,9 @@ public class playerhealth : MonoBehaviour
     public GameObject player; 
     private Animator anim;
     public GameObject controller;
+
+    public Text healthcounter;
+    public bool isDead = false;
     void Start()
     {
         curhealth=maxhealth;
@@ -22,6 +25,7 @@ public class playerhealth : MonoBehaviour
         anim=GetComponent<Animator>();
 
         controller=GameObject.FindWithTag("GameController");
+        UpdateHealthCount();
     }
 
     // Update is called once per frame
@@ -61,11 +65,37 @@ public class playerhealth : MonoBehaviour
     }
 
     //the player is health is damaged when he is hit, value of health bar also decreased 
-    public void SendDamage(float damageValue){
-        
-    	curhealth-=damageValue;
+    public void SendDamage(float damageValue)
+    {
+        curhealth-=damageValue;
     	healthBar.value=curhealth;
         //Debug.Log(curhealth);
     	anim.SetFloat("isBeaten",1);
+        UpdateHealthCount();
+    }
+
+    void Dead()
+    {
+        curhealth = 0;
+        isDead = true;
+        healthBar.value = 0;
+        //UpdateHealthCount();
+        Debug.Log("Player is Dead");
+
+    }
+
+    void UpdateHealthCount()
+    {
+        if (curhealth < 0)
+        {
+            Dead();
+            healthcounter.text = curhealth.ToString();
+
+        }
+
+        else
+        {
+            healthcounter.text = curhealth.ToString();
+        }
     }
 }
