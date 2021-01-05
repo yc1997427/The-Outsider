@@ -57,8 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\BloomModelEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\CreaseShadingEditor.cs" />
     <Compile Include="Assets\Player\Player Controller\Scripts\CharacterCreator\Script\Editor\vCreateBasicCharacterEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Utils\EditorResources.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\TonemappingEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\SunShaftsEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\ChromaticAberrationEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\PostProcessingFactory.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\ColorGradingModelEditor.cs" />
@@ -66,29 +69,39 @@
     <Compile Include="Assets\Player\Player Controller\Scripts\CharacterController\Editor\vCharacterEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\PropertyDrawers\GetSetDrawer.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\ScreenSpaceReflectionModelEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\PropertyDrawers\TrackballGroupDrawer.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Monitors\ParadeMonitor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\FogModelEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\DepthOfFieldModelEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\PostProcessingModelEditor.cs" />
     <Compile Include="Assets\Player\Player Controller\Scripts\CharacterController\Editor\vThirdPersonInputEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\VignetteModelEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\DepthOfFieldEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\DitheringModelEditor.cs" />
     <Compile Include="Assets\Player\Player Controller\Scripts\CharacterController\Editor\vInvectorStartup.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\PostProcessingBehaviourEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\DefaultPostFxModelEditor.cs" />
     <Compile Include="Assets\Player\Player Controller\Scripts\CharacterController\Editor\vInvectorWelcomeWindow.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\EyeAdaptationModelEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\PostProcessingInspector.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\PostProcessingMonitor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
     <Compile Include="Assets\Player\Player Controller\Scripts\CharacterCreator\Script\Editor\vHelperEditor.cs" />
     <Compile Include="Assets\Environment\DreamForestTree\Editor\SettingsPrompt.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Monitors\HistogramMonitor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\BuiltinDebugViewsEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\UserLutModelEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\BloomEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
     <Compile Include="Assets\Player\Player Controller\Scripts\Generic\Utils\Editor\vCommentEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\EdgeDetectionEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\MotionBlurModelEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\GrainModelEditor.cs" />
@@ -98,22 +111,9 @@
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Utils\EditorGUIHelper.cs" />
     <Compile Include="Assets\Player\Player Controller\Scripts\CharacterController\Editor\Resources\vEditorStartupPrefs.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Models\AntialiasingModelEditor.cs" />
+    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\ColorCorrectionCurvesEditor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Monitors\VectorscopeMonitor.cs" />
     <Compile Include="Assets\Environment\Sun_Temple\PostProcessing\Editor\Utils\CurveEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\CreaseShadingEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\TonemappingEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\SunShaftsEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\DepthOfFieldEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\AntialiasingEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\BloomEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\EdgeDetectionEditor.cs" />
-    <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\ColorCorrectionCurvesEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
