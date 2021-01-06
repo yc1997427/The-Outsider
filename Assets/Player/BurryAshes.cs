@@ -27,6 +27,7 @@ public class BurryAshes : MonoBehaviour
         {
             CanvasObject.GetComponent<Canvas>().enabled = false;
             Debug.Log("THE END!");
+            Application.Quit();
         }
     }
 }

@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
 
     public void tellingHumanStory(){
         if(numberOfAwared>0&&numberOfAwared<=4){
-            story.text="They humans were aliens, invaded my home. Earth!";
+            story.text="Humans are the real aliens, they invaded my home! Earth!";
         }
         if(numberOfAwared>4){
             story.text="They eliminated my species. I am the only one left.";
