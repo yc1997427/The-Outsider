@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
             story.text="Humans are the real aliens, they invaded my home! Earth!";
         }
         if(numberOfAwared>2&&numberOfAwared<=4){
-            story.text="They eliminated my species. I am the only one left.";
+            story.text="My home was Earth once called paradise before they came";
         }
         if(numberOfAwared>4&&numberOfAwared<=6){
             story.text="They eliminated my species. I am the only one left.";
