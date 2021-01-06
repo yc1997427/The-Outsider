@@ -154,12 +154,10 @@ public class PeasantAI : MonoBehaviour
     }
 
     public void cheeringUp(){
-        if(playerDie){
-            animator.SetBool("isAttack", false);
-            animator.SetBool("isPlayerDied", true);
-            agent.speed=0;
-
-        }
+   
+        animator.SetBool("isAttack", false);
+        animator.SetBool("isPlayerDied", true);
+        agent.speed=0;       
     }
 
 

@@ -43,8 +43,6 @@ public class playerhealth : MonoBehaviour
         	anim.SetBool("death",true);
             //GameObject.Destroy(gameObject);
             controller.GetComponent<GameController>().playerDied();
-
-            //collider.direction=2;
         }
         if(Input.GetKeyUp(KeyCode.Return)){
         	SendDamage(Random.Range(5,10));
@@ -55,11 +53,13 @@ public class playerhealth : MonoBehaviour
 
     //detect collision from enemy 
     public void OnCollisionEnter(Collision other){
-        
-        if(other.gameObject.tag =="Enemy"&&controller.GetComponent<GameController>().secondAware()){       
+        if(curhealth>0){
+            if(other.gameObject.tag =="Enemy"&&controller.GetComponent<GameController>().secondAware()){       
             //Debug.Log("coll");
-            SendDamage(Random.Range(5,10));
+                SendDamage(Random.Range(5,10));
             
+            }
+
         }
 
     }

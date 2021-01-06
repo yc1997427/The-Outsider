@@ -864,6 +864,7 @@ MonoBehaviour:
   AwaredCountText: {fileID: 0}
   controller: {fileID: 0}
   deathSplash: {fileID: 1668907592422966, guid: d52fff590afb94928b60b4a60047d206, type: 3}
+  playerDie: 0
 --- !u!195 &5423847677566609965
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -896,10 +897,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.345
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0.3}
+  m_Center: {x: 0, y: 0.9, z: 0.1}
 --- !u!1 &5245609837635539374
 GameObject:
   m_ObjectHideFlags: 0
