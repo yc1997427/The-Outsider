@@ -63,16 +63,19 @@ public class GameController : MonoBehaviour
     }
 
     public void tellingHumanStory(){
-        if(numberOfAwared>0&&numberOfAwared<=4){
+        if(numberOfAwared>0&&numberOfAwared<=2){
             story.text="Humans are the real aliens, they invaded my home! Earth!";
         }
-        if(numberOfAwared>4){
+        if(numberOfAwared>2&&numberOfAwared<=4){
             story.text="They eliminated my species. I am the only one left.";
         }
-        if(numberOfAwared>6){
+        if(numberOfAwared>4&&numberOfAwared<=6){
+            story.text="They eliminated my species. I am the only one left.";
+        }
+        if(numberOfAwared>6&&numberOfAwared<=8){
             story.text="They corrupted the history, calling themselves aboriginals.";
         }
-        if(numberOfAwared>9){
+        if(numberOfAwared>8){
             story.text="They want to kill me, yet call me the monster!";
         }
     }
