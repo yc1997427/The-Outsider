@@ -71,7 +71,10 @@ public class PeasantAI : MonoBehaviour
     void Update()
     {   
         if(controller.GetComponent<GameController>().playerDeath()){
+            animator.SetBool("isAttack", false);
             animator.SetBool("isPlayerDied", true);
+            agent.speed=0;
+
         }
         numOfAwaredHumans=controller.GetComponent<GameController>().Awared();
         //the enemy detects the player
@@ -106,6 +109,7 @@ public class PeasantAI : MonoBehaviour
             else{
     
                 //Debug.Log(controller.GetComponent<GameController>().secondAware());
+                if()
 
                 // if more than 9 enemies have awared player, they will chase up player altogether and attack 
                 if(chase&&controller.GetComponent<GameController>().secondAware()){
