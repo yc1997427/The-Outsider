@@ -41,12 +41,14 @@ public class playerhealth : MonoBehaviour
         	anim.SetFloat("isBeaten",hit);
         }
         if(curhealth<1){
-            //GetComponent<CapsuleCollider>().direction=2;
+            
             GetComponent<vThirdPersonAnimator>().enabled=false;
             GetComponent<vThirdPersonInput>().enabled=false;
-        	anim.SetBool("death",true);
+
             //GameObject.Destroy(gameObject);
             controller.GetComponent<GameController>().playerDied();
+            anim.SetBool("death",true);
+            GetComponent<CapsuleCollider>().direction=2;
         }
         if(Input.GetKeyUp(KeyCode.Return)){
         	SendDamage(100);
