@@ -17,12 +17,9 @@ public class playerhealth : MonoBehaviour
 
     public Text healthcounter;
     public bool isDead = false;
-
-    public static playerhealth singleton;
     void Start()
     {
-        singleton = this;
-        curhealth = maxhealth;
+        curhealth=maxhealth;
         healthBar.value=curhealth;
         healthBar.maxValue=maxhealth;
         anim=GetComponent<Animator>();
@@ -77,13 +74,6 @@ public class playerhealth : MonoBehaviour
         UpdateHealthCount();
     }
 
-    public void AddHealth(float healthpack)
-    {
-        curhealth += healthpack;
-        UpdateHealthCount();
-    }
-
-
     void Dead()
     {
         curhealth = 0;
@@ -105,7 +95,6 @@ public class playerhealth : MonoBehaviour
 
         else
         {
-            healthBar.value = curhealth;
             healthcounter.text = curhealth.ToString();
         }
     }
