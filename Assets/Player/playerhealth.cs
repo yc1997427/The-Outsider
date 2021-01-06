@@ -49,7 +49,7 @@ public class playerhealth : MonoBehaviour
             controller.GetComponent<GameController>().playerDied();
         }
         if(Input.GetKeyUp(KeyCode.Return)){
-        	SendDamage(Random.Range(5,10));
+        	SendDamage(100);
         }
 
         
