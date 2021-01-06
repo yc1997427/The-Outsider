@@ -109,7 +109,7 @@ public class PeasantAI : MonoBehaviour
             else{
     
                 //Debug.Log(controller.GetComponent<GameController>().secondAware());
-                if()
+
 
                 // if more than 9 enemies have awared player, they will chase up player altogether and attack 
                 if(chase&&controller.GetComponent<GameController>().secondAware()){
