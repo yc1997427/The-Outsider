@@ -47,6 +47,7 @@ public class PeasantAI : MonoBehaviour
     Vector3 target;
 
     private UnityEngine.AI.NavMeshAgent agent;
+    public bool playerDie=false;
 
 
     void Start()
@@ -69,13 +70,17 @@ public class PeasantAI : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        if(controller.GetComponent<GameController>().playerDeath()){
-            animator.SetBool("isAttack", false);
-            animator.SetBool("isPlayerDied", true);
-            agent.speed=0;
-
+    {   playerDie=controller.GetComponent<GameController>().playerDeath();
+        if(playerDie){
+            cheeringUp();
         }
+        else{
+            EnemyAI();
+        }
+
+    }
+
+    public void EnemyAI(){
         numOfAwaredHumans=controller.GetComponent<GameController>().Awared();
         //the enemy detects the player
         //if he sees the player, he will chase up
@@ -84,7 +89,7 @@ public class PeasantAI : MonoBehaviour
 
         //if enemy see player;
 
-        if (isAware)
+        if (isAware&&!playerDie)
         {   
             if(numOfAwaredHumans<10||!chase){
 
@@ -144,31 +149,19 @@ public class PeasantAI : MonoBehaviour
             animator.SetBool("isRunning", true);
             agent.speed = wanderSpeed;
 
-            SearchForPlayer();
-
-            
+            SearchForPlayer();          
         }
     }
 
-    /*private void OnCollisionEnter(Collision other){
-        //detecting player collision 
-        
-        if(other.gameObject.tag =="Player"){
-            int punchId = Animator.StringToHash("Punch");
-            AnimatorStateInfo animStateInfo = otherAnimator.GetCurrentAnimatorStateInfo(0);
-            if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("j"))){
-                Instantiate(deathSplash,transform.position,Quaternion.identity);
-                GameObject.Destroy(gameObject);
-            }
-            if ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)&&(Input.GetKeyDown("k"))){
-                Instantiate(deathSplash,transform.position,Quaternion.identity);
-                GameObject.Destroy(gameObject);
-            }
-                
-            
-        }
+    public void cheeringUp(){
+        if(playerDie){
+            animator.SetBool("isAttack", false);
+            animator.SetBool("isPlayerDied", true);
+            agent.speed=0;
 
-    }*/
+        }
+    }
+
 
     public void gotAttacked(){
 
