@@ -21,7 +21,7 @@ public class PeasantAI : MonoBehaviour
     int chaseSpeed = 9;
     int wanderSpeed = 3;
 
-    int SecondSearchDistance=70;
+    int SecondSearchDistance=110;
 
     int numOfAwaredHumans;
 
