@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
 
     private AudioManager theAM;
     public Text story;
+    public Slider healthBar;
 
     void Start()
     {
@@ -38,8 +39,12 @@ public class GameController : MonoBehaviour
             }
             encounterEnemyMusicPlayed=true;
         }
+        if(healthBar.value<50){
+            tellingMomStory();
+        }
         if(playerDie){
             theAM.ChangeSong(playerDieMusic);
+            story.text="Bless humans, long may live them";
         }
         if(isSecondAware){
             if(!secondAwareMusicPlayed){

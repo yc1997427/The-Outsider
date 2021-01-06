@@ -60,7 +60,7 @@ public class PeasantAI : MonoBehaviour
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         AwaredCountText=GameObject.Find("Awaredhumans").GetComponent<Text>();
 
-        target=new Vector3(499,0,650);
+        target=new Vector3(499,0,780);
         
         //numOfAwaredHumans=Convert.ToInt32(AwaredCountText.text.Trim().Split(':')[1]);
 
@@ -201,8 +201,8 @@ public class PeasantAI : MonoBehaviour
     //detecting player if he is within the enemy viewdistance and foward sight.
     public void SearchForPlayer()
     {
-        if (Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)
-        {
+        //if (Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position)) < fov / 2f)
+        //{
             if (Vector3.Distance(player.transform.position, transform.position) < viewDistance)
             {
                 RaycastHit hit;
@@ -218,7 +218,7 @@ public class PeasantAI : MonoBehaviour
                 }
 
             }
-        }
+        //}
 
         /*else if (Vector3.Distance(player.transform.position, transform.position) < voiceDistance)
         {   
