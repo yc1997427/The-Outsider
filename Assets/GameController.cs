@@ -64,16 +64,16 @@ public class GameController : MonoBehaviour
 
     public void tellingHumanStory(){
         if(numberOfAwared>0&&numberOfAwared<=4){
-            story.text="They humans were aliens, invaded my home earth";
+            story.text="They humans were aliens, invaded my home. Earth!";
         }
         if(numberOfAwared>4){
-            story.text="They elinimated our spiece, only myself left";
+            story.text="They eliminated my species. I am the only one left.";
         }
         if(numberOfAwared>6){
-            story.text="They perverted history, calling themselves aboriginals";
+            story.text="They corrupted the history, calling themselves aboriginals.";
         }
         if(numberOfAwared>9){
-            story.text="They call me monster, want to kill me for justice as they say";
+            story.text="They want to kill me, yet call me the monster!";
         }
     }
     public void SetAwaredCountText(){
@@ -97,11 +97,11 @@ public class GameController : MonoBehaviour
         isSecondAware=true;
     }
     public void battellingStory(){
-        story.text="I don't have to kill them myself, they are killing each other";
+        story.text="I MUST RUN TO THE TEMPLE TO BURRY MOTHER'S ASHES!";
     }
 
     public void tellingMomStory(){
-        story.text="They slaughtered mom, worshiping her burnings as holy ashes";
+        story.text="They slaughtered mother, worshiping her burnings as holy ashes!";
     }
 
     public bool secondAware(){
