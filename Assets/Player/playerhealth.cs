@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Invector.vCharacterController;
+
 
 public class playerhealth : MonoBehaviour
 {
@@ -40,6 +42,8 @@ public class playerhealth : MonoBehaviour
         }
         if(curhealth<1){
             //GetComponent<CapsuleCollider>().direction=2;
+            GetComponent<vThirdPersonAnimator>().enabled=false;
+            GetComponent<vThirdPersonInput>().enabled=false;
         	anim.SetBool("death",true);
             //GameObject.Destroy(gameObject);
             controller.GetComponent<GameController>().playerDied();
