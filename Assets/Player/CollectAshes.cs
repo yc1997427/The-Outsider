@@ -9,6 +9,7 @@ public class CollectAshes : MonoBehaviour
     private AudioManager theAM;
     public Text objective;
     public Text story;
+    public GameObject buryTheAshes;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class CollectAshes : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             gameObject.SetActive(false);
+            buryTheAshes.SetActive(true);
             objective.text = "Objective: Burry mother's ashes in the temple.";
             story.text = "They slaughtered mother, worshiping her burnings as holy ashes!";
             Debug.Log("Ashes collected.");

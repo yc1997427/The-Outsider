@@ -6,6 +6,7 @@ public class Story : MonoBehaviour
 {
     public Text story;
     public Text objective;
+    public GameObject cubes;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +22,6 @@ public class Story : MonoBehaviour
     {
         objective.text = "Objective: Find the Emporer's house.";
         story.text = "      I must find mother's ashes.\nThe Emporer took hold of them when I was exiled.";
+        cubes.SetActive(false);
     }
 }
