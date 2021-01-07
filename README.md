@@ -24,3 +24,5 @@
  Background music: Lady Maria https://www.youtube.com/watch?v=8mByDcrNSV0&ab_channel=Shirrako
 
  Background music:Escape To The Beginning https://www.youtube.com/watch?v=uNEGJwdlwm4&list=PLGkHtUoJlVfsFQZm7x5trSwImG3kCgKf1&index=9&ab_channel=RiskingDark
+ 
+ Snow mountain assets: https://assetstore.unity.com/packages/3d/environments/landscapes/free-snow-mountain-63002
