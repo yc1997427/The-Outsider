@@ -96,6 +96,7 @@ public class playerhealth : MonoBehaviour
         {
             Dead();
             healthcounter.text = curhealth.ToString();
+            GetComponent<DeathHandler>().HandleDeath();
 
         }
 
