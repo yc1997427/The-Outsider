@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollectAshes : MonoBehaviour
 {
     public AudioClip leavingTrack;
     private AudioManager theAM;
+    public Text objective;
+    public Text story;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class CollectAshes : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             gameObject.SetActive(false);
+            objective.text = "Objective: Burry mother's ashes in the temple.";
+            story.text = "They slaughtered mother, worshiping her burnings as holy ashes!";
             Debug.Log("Ashes collected.");
             if (leavingTrack != null)
             {

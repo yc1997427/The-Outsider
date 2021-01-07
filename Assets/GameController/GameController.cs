@@ -39,12 +39,9 @@ public class GameController : MonoBehaviour
             }
             encounterEnemyMusicPlayed=true;
         }
-        if(healthBar.value<50){
-            tellingMomStory();
-        }
         if(playerDie){
             theAM.ChangeSong(playerDieMusic);
-            story.text="Bless humans, long may live them";
+            story.text="You died!";
         }
         if(isSecondAware){
             if(!secondAwareMusicPlayed){
@@ -67,15 +64,15 @@ public class GameController : MonoBehaviour
             story.text="Humans are the real aliens, they invaded my home! Earth!";
         }
         if(numberOfAwared>2&&numberOfAwared<=4){
-            story.text="My home was Earth once called paradise before they came";
+            story.text="My home was called Paradise before the humans came.";
         }
         if(numberOfAwared>4&&numberOfAwared<=6){
             story.text="They eliminated my species. I am the only one left.";
         }
-        if(numberOfAwared>6&&numberOfAwared<=8){
+        if(numberOfAwared>6&&numberOfAwared<=10){
             story.text="They corrupted the history, calling themselves aboriginals.";
         }
-        if(numberOfAwared>8){
+        if(numberOfAwared>10){
             story.text="They want to kill me, yet call me the monster!";
         }
     }
@@ -100,11 +97,8 @@ public class GameController : MonoBehaviour
         isSecondAware=true;
     }
     public void battellingStory(){
-        story.text="I MUST RUN TO THE TEMPLE TO BURRY MOTHER'S ASHES!";
-    }
-
-    public void tellingMomStory(){
-        story.text="They slaughtered mother, worshiping her burnings as holy ashes!";
+        story.text="They are gathering in front of the temple to stop me!" +
+            "I MUST MAKE IT TO THE TEMPLE TO BURRY MOTHER'S ASHES!";
     }
 
     public bool secondAware(){
